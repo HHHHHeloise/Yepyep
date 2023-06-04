@@ -1,12 +1,14 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import Login from './Login';
+import Signup from './Signup';
 
 export default function App() {
   let element = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/about', element: <RestaurantListPage /> },
     { path: '/login', element: <Login /> },
+    { path: 'signup', element: <Signup />}
   ]);
 
   return element;
