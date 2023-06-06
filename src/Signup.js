@@ -76,5 +76,17 @@ class Login extends React.Component {
   }
 }
 
+class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+      // token: '',
+    };
+    this.login = this.login.bind(this);
+  }
+} 
 
 export default Login;
