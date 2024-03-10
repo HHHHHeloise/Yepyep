@@ -1,0 +1,150 @@
+.header {
+    background-color: #FFFFFF;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.searchInput,
+.locationInput {
+    padding: 13px 16px;
+    margin: 0;
+    border: none;
+    flex: 1;
+}
+
+.locationInput {
+    border-left: 1px solid #cccccc;
+}
+
+.searchButton {
+    background-color: #E00707;
+    color: #FFFFFF;
+    padding: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.wrapper {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.listingsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.listingItem {
+    flex-basis: calc(33.333% - 10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    background-color: #FFF;
+}
+
+.listingImage {
+    width: 100%;
+    height: auto;
+}
+
+.listingInfo {
+    padding: 8px;
+}
+
+.listingName {
+    margin: 0;
+    color: #333;
+    font-size: 1em;
+}
+
+.listingTag {
+    color: #777;
+    font-size: 0.8em;
+}
+
+.listingRating {
+    color: #E00707;
+    font-weight: bold;
+}
+/* ... Other styles from previous examples ... */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.header {
+    /* ... */
+}
+
+.searchContainer {
+    /* ... */
+}
+
+.filters {
+    width: 20%;
+    /* Adjust width as needed */
+    padding: 10px;
+    float: left;
+}
+
+.filterSection {
+    margin-bottom: 10px;
+}
+
+.button,
+.categoryButton,
+.checkboxLabel {
+    display: block;
+    /* Make them stack vertically */
+}
+
+.content {
+    display: flex;
+}
+
+.restaurantsList {
+    width: 80%;
+    /* Adjust width as needed */
+    padding: 10px;
+    float: right;
+}
+
+.restaurantEntry {
+    /* ... */
+}
+
+.restaurantImage {
+    /* ... */
+}
+
+.restaurantDetails {
+    /* ... */
+}
+
+/* Clear fix for the floated elements */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add responsive layout adjustments as necessary */
+@media (max-width: 768px) {
+
+    .filters,
+    .restaurantsList {
+        width: 100%;
+        float: none;
+    }
+}

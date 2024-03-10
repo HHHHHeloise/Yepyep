@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import React from 'react';
 
-class Login extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +31,7 @@ class Login extends React.Component {
     });
 
     // create restaurant
-    // TODO: move this to restaurant creat page
+    // TODO: move this to restaurant create page
     let config = {
       headers: {
         'Authorization': 'Bearer ' + this.state.token
@@ -55,17 +55,25 @@ class Login extends React.Component {
           <form>
               <div style={{marginBottom: '15px'}}>
                   <div for="fname" style={{marginRight: '10px', marginBottom: '6px', fontSize: '14px'}} data-component-bound="true"></div>
-                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Username' type="text" id="username" name="username" value={this.state.email} onChange={e => this.setState({email: e.target.value})}/>    
+                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Username' type="text" id="fname" name="username" value={this.state.email} onChange={e => this.setState({email: e.target.value})}/>    
               </div>
               <div style={{marginBottom: '15px'}}>
                   <div for="fname" style={{marginRight: '10px', marginBottom: '6px', fontSize: '14px'}} data-component-bound="true"></div>
-                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Email' type="text" id="email" name="email" value={this.state.email} onChange={e => this.setState({email: e.target.value})}/>    
+                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Email' type="text" id="fname" name="email" value={this.state.email} onChange={e => this.setState({email: e.target.value})}/>    
               </div>
-              <div>
-                <div style={{display:'flex', justifyContent:'space-between', marginBottom: '6px',}}></div>
-                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Password' type="password" id="password" name="password" value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>    
+              <div style={{marginBottom: '15px'}}>
+                <div for="fname" style={{display:'flex', justifyContent:'space-between', marginBottom: '6px',fontSize: '14px'}}></div>
+                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Password' type="password" id="fname" name="password" value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>    
               </div>
-              <button type="button" class="btn btn-success" onClick={(e) => this.login(e)} style={{ display:'flex', alignItems:'center'}}>Sign up</button>
+              <div style={{marginBottom: '15px'}}>
+                  <div for="fname" style={{marginRight: '10px', marginBottom: '6px', fontSize: '14px'}} data-component-bound="true"></div>
+                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='ZIP Code' type="text" id="fname" name="ZIP Code" value={this.state.email} onChange={e => this.setState({email: e.target.value})}/>    
+              </div>
+              <div style={{marginBottom: '15px'}}>
+                  <label style={{marginBottom: '6px', marginTop: '0px', fontWeight:"bold"}}>Birthday</label>
+                  <div for="fname" style={{marginRight: '10px', marginBottom: '6px', fontSize: '14px'}} data-component-bound="true"></div>
+                  <input style={{borderRadius: '5px', borderWidth: 'thin', borderColor: '#d0d7de', width: '-webkit-fill-available', height:'24px'}} placeholder='Birthday' type="text" id="fname" name="email" value={this.state.email} onChange={e => this.setState({email: e.target.value})}/>    
+              </div>
               <button style={{ marginTop: '15px', width: '100%', backgroundColor: '#1f883d', color: 'white', borderColor: 'rgba(31,35,40,0.15)', height: '30px', borderRadius: '6px' }} onClick={(e) => this.login(e)}>Sign in</button>
               <div style={{ fontSize: '5px', color: '#999999', textAlign:'right'}}> Already on Yelp? 
               <a href="https://github.com/login" style={{ fontSize: '5px', textDecoration: 'none' }}> Login</a>
@@ -76,17 +84,6 @@ class Login extends React.Component {
   }
 }
 
-class Signup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      email: '',
-      password: '',
-      // token: '',
-    };
-    this.login = this.login.bind(this);
-  }
-} 
 
-export default Login;
+
+export default Signup;
