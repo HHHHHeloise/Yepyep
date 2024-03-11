@@ -71,13 +71,13 @@
     color: #E00707;
     font-weight: bold;
 }
-/* ... Other styles from previous examples ... */
 
 .wrapper {
     display: flex;
     flex-direction: column;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 .filterContainer {
     display: flex;
     flex-wrap: wrap;
@@ -109,7 +109,6 @@
 }
 .filters {
     width: 20%;
-    /* Adjust width as needed */
     padding: 10px;
     float: left;
 }
@@ -134,26 +133,13 @@
     float: right;
 }
 
-.restaurantEntry {
-    /* ... */
-}
 
-.restaurantImage {
-    /* ... */
-}
-
-.restaurantDetails {
-    /* ... */
-}
-
-/* Clear fix for the floated elements */
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
 
-/* Add responsive layout adjustments as necessary */
 @media (max-width: 768px) {
 
     .filters,
