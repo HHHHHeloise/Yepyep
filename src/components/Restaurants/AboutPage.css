@@ -13,10 +13,6 @@ html {
     align-items: center;
 }
 
-.logo {
-    /* Add your logo image properties */
-}
-
 .searchContainer {
     display: flex;
     align-items: center;
@@ -66,5 +62,3 @@ html {
     background-color: #E00707;
     color: #FFFFFF;
 }
-
-/* Additional styles for responsiveness and other elements */

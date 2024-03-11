@@ -67,14 +67,6 @@
     cursor: pointer;
 }
 
-/* .mapPlaceholder {
-    width: 100%;
-    height: 400px;
-    background-image: url('https://www.google.com/maps/embed');
-    background-size: cover;
-    margin-top: 10px;
-} */
-
 .mainHeader {
     display: flex;
     justify-content: center;

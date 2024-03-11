@@ -61,9 +61,7 @@ const RestaurantEntry = ({ imageSrc, name, tags, rating, reviewCount, url }) => 
 );
 
 const RestaurantListing = () => {
-  // This data could come from an API call
   const restaurantsData = [
-    // Example entry
     {
       imageSrc: 'image_url', // Replace with actual image path or url
       name: 'M & M Bagels',
