@@ -82,15 +82,35 @@
     flex-direction: column;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
-.header {
-    /* ... */
+.filterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 0;
 }
 
-.searchContainer {
-    /* ... */
+.button,
+.categoryButton {
+    margin-right: 8px;
+    padding: 8px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.checkbox {
+    margin-right: 8px;
+}
+
+.categoryButton {
+    background-color: #f0f0f0;
+}
 .filters {
     width: 20%;
     /* Adjust width as needed */
@@ -106,7 +126,6 @@
 .categoryButton,
 .checkboxLabel {
     display: block;
-    /* Make them stack vertically */
 }
 
 .content {
@@ -115,7 +134,6 @@
 
 .restaurantsList {
     width: 80%;
-    /* Adjust width as needed */
     padding: 10px;
     float: right;
 }

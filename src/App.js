@@ -1,14 +1,14 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
-import Login from './Login';
+import Login from './components/Auth/Login';
 import RestaurantList from './components/Restaurants/RestaurantList';
-import About from './components/Restaurants/Restaurant';
-import Signup from './Signup';
+import Signup from './components/Auth/Signup';
+import HomePage from './components/Restaurants/Restaurant';
 
 export default function App() {
   let element = useRoutes([
     { path: '/', element: <Home /> },
-    { path: '/about', element: <About /> },
+    { path: '/home', element: <HomePage /> },
     { path: '/list', element: <RestaurantList /> },
     { path: '/login', element: <Login /> },
     { path: 'signup', element: <Signup />}

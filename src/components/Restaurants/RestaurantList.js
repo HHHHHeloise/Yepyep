@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa'; // Ensure react-icons is installed
-import './styles.css';
+import { FaSearch } from 'react-icons/fa'; 
+import './RestaurantList.css';
 
 const SearchBar = () => (
   <header className="header">
@@ -72,7 +72,6 @@ const RestaurantListing = () => {
       reviewCount: 233,
       url: '#', // Replace with actual link to restaurant's page
     },
-    // ... other restaurant entries
   ];
 
   return (
