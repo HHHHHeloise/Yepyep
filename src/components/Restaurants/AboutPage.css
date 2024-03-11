@@ -1,0 +1,70 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.header {
+    background-color: #FFFFFF;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    /* Add your logo image properties */
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin: 0 20px;
+}
+
+.searchInput,
+.locationInput {
+    padding: 13px 16px;
+    margin: 0;
+    border: none;
+    flex: 1;
+}
+
+.locationInput {
+    border-left: 1px solid #cccccc;
+}
+
+.searchButton {
+    background-color: #E00707;
+    color: #FFFFFF;
+    padding: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.userOptions {
+    display: flex;
+    align-items: center;
+}
+
+.loginButton,
+.signupButton {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.signupButton {
+    background-color: #E00707;
+    color: #FFFFFF;
+}
+
+/* Additional styles for responsiveness and other elements */
