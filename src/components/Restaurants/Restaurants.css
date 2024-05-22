@@ -1,140 +1,92 @@
-.app {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    /* position: relative; */
-    /* background-image: url('https://www.jellycat.com/images/articles/AMUSEABLE_COFFEE_BEAN_OATS_GUNIEA_PIG_BAKERY_PORTRAIT.JPG');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center top;
-    overflow-y: auto;
-     */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    /* Base font size */
 }
-
-.backgroundImage {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('https://www.jellycat.com/images/articles/AMUSEABLE_COFFEE_BEAN_OATS_GUNIEA_PIG_BAKERY_PORTRAIT.JPG');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    overflow-y: auto;
-    z-index: -1;
-}
-
-.logo,
-.searchBarContainer,
-.authButtons {
-    position: relative;
-    z-index: 1;
-}
-
-
 .header {
+    background-color: #ffffff;
+    /* Change header background to white */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #d32323;
-    padding: 10px;
-    color: white;
+    padding: 10px 30px;
+    /* Increase padding for better spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add shadow for depth */
 }
 
-.logo img {
-    height: 100px;
-}
-
-.searchBarContainer {
-    display: flex;
-    margin: 0 auto;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.searchInput {
-    padding: 10px;
-    border: none;
-    font-size: 16px;
-}
-
-.searchButton {
-    background-color: #fff;
-    color: #d32323;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-}
-
-.mainHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    padding: 20px;
-    position: relative;
-}
-
-.searchBarContainer {
-    display: flex;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.locationInput {
-    border-left: 1px solid #ccc;
-}
-
-.searchButton {
-    background-color: #d32323;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
-
-.authButtons {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-}
-
-.loginButton,
-.signupButton {
-    padding: 10px 20px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.logo {
+    font-size: 24px;
     font-weight: bold;
+    font-size: 2em;
+    color: #8306ff;
+    cursor: pointer;
 }
 
-.loginButton {
-    background: none;
-    color: #d32323;
+.searchContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    /* Add border for definition */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    /* Light grey background for the search area */
 }
 
-.signupButton {
+.searchInput,
+.locationInput {
+    border: none;
+    padding: 8px 10px;
+    margin-right: 5px;
+    /* Ensure inputs are not too wide */
+}
+
+.searchButton {
     background-color: #d32323;
-    color: white;
+    /* Maintain Yelp red for the button */
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
 }
 
-@media (max-width: 768px) {
-    .searchBarContainer {
-        flex-direction: column;
-        width: 90%;
-    }
+.navLink {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: transparent;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    /* subtle border for definition */
+    border-radius: 10px;
+    /* rounded corners for all links and buttons */
+    margin-right: 8px;
+    /* space between elements */
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+}
 
-    .searchInput,
-    .locationInput {
-        width: calc(100% - 20px);
-        margin: 5px 0;
-    }
+/* Styles for log in and sign up buttons */
+.button {
+    background-color: #d32323;
+    /* Yelp red for sign up */
+    color: white;
+    /* White text for better visibility */
+    border: none;
+    /* No border for a cleaner button look */
+}
 
-    .searchButton {
-        width: calc(100% - 10px);
-    }
+.button:hover {
+    background-color: #b31b1b;
+    /* Darker red on hover */
+}
+
+/* Modify hover effect for all navLinks and buttons */
+.navLink:hover,
+.button:hover {
+    background-color: #cccccc;
+    /* Gray background on hover */
+    color: #333;
+    /* Ensures text color remains readable */
 }

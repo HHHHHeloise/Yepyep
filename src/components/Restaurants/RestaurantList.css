@@ -1,150 +1,304 @@
-.header {
+/* Filter Container Styles */
+.filterContainer {
+    font-family: 'Roboto', sans-serif;
+    /* A more modern font */
+    font-size: 14px;
+    /* Smaller text */
     background-color: #FFFFFF;
-    padding: 24px;
-    display: flex;
-    justify-content: center;
-}
-
-.searchContainer {
-    display: flex;
-    align-items: center;
-    border: 1px solid #cccccc;
+    padding: 12px;
+    /* Slightly reduced padding */
+    width: 350px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
 
-.searchInput,
-.locationInput {
-    padding: 13px 16px;
-    margin: 0;
-    border: none;
+.filterContainer h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.filterContainer h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+.filterContainer h2,
+.filterContainer h3 {
+    margin: 10px 0;
+}
+
+.filterButtonContainer {
+    display: flex;
+    background: white;
+}
+
+.filterButton {
     flex: 1;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-right: 0;
+    padding: 8px 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 10px;
 }
 
-.locationInput {
-    border-left: 1px solid #cccccc;
+.filterButton:hover {
+    background-color: #e0e0e0;
+    /* Gray background on hover */
+    color: #333;
+    /* Ensures text color remains readable */
 }
 
-.searchButton {
-    background-color: #E00707;
-    color: #FFFFFF;
-    padding: 10px;
-    border: none;
-    border-radius: 0 4px 4px 0;
+.filterButton:first-child {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-right: 1px solid #CCC;
+}
+
+.filterButton:last-child {
+    border-right: 1px solid #CCC;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.filterSection {
+    margin-bottom: 20px;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    /* Centers the checkbox and text vertically */
+    margin-bottom: 10px;
+    /* Adds space between the checkbox entries */
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    /* Adjust font size as needed */
+}
+
+.checkboxLabel input[type='checkbox'] {
+    appearance: none;
+    /* Removes default styling */
+    margin-right: 10px;
+    width: 20px;
+    /* Width of the custom checkbox */
+    height: 20px;
+    /* Height of the custom checkbox */
+    border: 2px solid #ccc;
+    /* Border color */
+    border-radius: 50%;
+    /* Makes it circular */
+    position: relative;
     cursor: pointer;
 }
 
-.listingsContainer {
+.checkboxLabel input[type='checkbox']::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    /* Expands the clickable area */
+    left: -5px;
+    width: 30px;
+    /* Size of the hover effect */
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.checkboxLabel input[type='checkbox']:hover::before {
+    background: rgba(0, 0, 0, 0.1);
+    /* Color of the hover effect */
+}
+
+.checkboxLabel input[type='checkbox']:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.categoryButtonContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 8px 0;
+    gap: 10px;
 }
 
-.listingItem {
-    flex-basis: calc(33.333% - 10px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px;
+.categoryButton {
     background-color: #FFF;
+    border: 1px solid #CCC;
+    padding: 5px 10px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 13px;
+    margin: 2px;
 }
 
-.listingImage {
-    width: 100%;
-    height: auto;
+.categoryButton:hover {
+    background-color: #e0e0e0;
 }
 
-.listingInfo {
-    padding: 8px;
-}
-
-.listingName {
-    margin: 0;
-    color: #333;
-    font-size: 1em;
-}
-
-.listingTag {
-    color: #777;
-    font-size: 0.8em;
-}
-
-.listingRating {
-    color: #E00707;
+.seeAll {
     font-weight: bold;
+    color: #007BFF;
+    text-decoration: underline;  
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Listing Container Styles */
+
+.restaurantEntry {
+    display: flex;
+    background: white;
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: inherit;
+    font-size: inherit;
+    width: 98%;
+    float: left;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.restaurantEntry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.restaurantImage {
+    width: 150px;
+    height: 100px;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.restaurantDetails {
+    flex-grow: 1;
+}
+
+.restaurantDetails h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.restaurantMeta,
+.restaurantDescription,
+.restaurantFeatures {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.restaurantMeta {
+    font-size: 0.875em;
+}
+
+.restaurantPrice {
+    font-size: 1em;
+    color: #666;
+    margin: 3px;}
+
+.tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.tag:hover {
+    background-color: #ccc;
+}
+
+.restaurantCuisines .tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 5px;
+    /* Space between tags */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.restaurantCuisines .tag:hover {
+    background-color: #ccc;
+    /* Darker on hover */
+}
+/* Google Map Section*/
+.map {
+    flex: 2;
+    /* Larger space for the map */
+    height: 400px;
+    /* Set a fixed height for the map */
+    background-color: #e0e0e0;
+    /* Placeholder color if the map doesn't load */
+}
+
+.container {
+    display: flex;
+    width: 100%;
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.filterContainer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 8px 0;
-}
-
-.button,
-.categoryButton {
-    margin-right: 8px;
-    padding: 8px 12px;
-    border: 1px solid #cccccc;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.checkboxLabel {
-    display: flex;
-    align-items: center;
-    margin-right: 8px;
-}
-
-.checkbox {
-    margin-right: 8px;
-}
-
-.categoryButton {
-    background-color: #f0f0f0;
-}
-.filters {
-    width: 20%;
-    padding: 10px;
-    float: left;
-}
-
-.filterSection {
-    margin-bottom: 10px;
-}
-
-.button,
-.categoryButton,
-.checkboxLabel {
-    display: block;
 }
 
 .content {
     display: flex;
 }
 
+/* RestaurantList.css */
+
 .restaurantsList {
-    width: 80%;
-    padding: 10px;
-    float: right;
+    width: 70%;
+    float: left;
+    margin-right: 0;
+    padding-right: 0;
 }
 
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.mapContainer {
+    width: 30%;
+    float: left;
+    margin-left: 0;
+    padding-left: 0;
 }
 
+@media (max-width: 768px) {
+
+    .restaurantsList,
+    .mapContainer {
+        width: 100%;
+        float: none;
+    }
+}
+/* Responsive Design */
 @media (max-width: 768px) {
 
     .filters,
     .restaurantsList {
         width: 100%;
         float: none;
+    }
+    .filterContainer {
+            padding: 8px;
+            font-size: 12px;
     }
 }

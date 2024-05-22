@@ -24,30 +24,43 @@ const SearchBar = () => (
   </header>
 );
 
-const Filters = () => (
-  <div className="filters">
-    <div className="filterSection">
-      <button className="button">$</button>
-      <button className="button">$$</button>
-      <button className="button">$$$</button>
-      <button className="button">$$$$</button>
+const Filters = () => {
+  return (
+    <div className="filterContainer">
+      <h2>Filters</h2>
+      <div className="filterSection">
+        <h3>Price</h3>
+        <div className="filterButtonContainer">
+          <button className="filterButton">$</button>
+          <button className="filterButton">$$</button>
+          <button className="filterButton">$$$</button>
+          <button className="filterButton">$$$$</button>
+        </div>
+      </div>
+      <div className="filterSection">
+        <h3>Suggested</h3>
+        <label className="checkboxLabel"><input type="checkbox" /> Open Now</label>
+        <label className="checkboxLabel"><input type="checkbox" /> Offers Delivery</label>
+        <label className="checkboxLabel"><input type="checkbox" /> Offers Takeout</label>
+        <label className="checkboxLabel"><input type="checkbox" /> Good for Dinner</label>
+        <label className="checkboxLabel"><input type="checkbox" /> Outdoor Seating</label>
+        <label className="checkboxLabel"><input type="checkbox" /> Good for Lunch</label>
+      </div>
+      <div className="filterSection">
+        <h3>Category</h3>
+        <div className="categoryButtonContainer">
+          <button className="categoryButton">New American</button>
+          <button className="categoryButton">Italian</button>
+          <button className="categoryButton">Restaurants</button>
+          <button className="categoryButton">American</button>
+          <button className="categoryButton">Steakhouses</button>
+          <button className="categoryButton">Seafood</button>
+        </div>
+      </div>
+      <div className="seeAll">See all</div>
     </div>
-    <div className="filterSection">
-      <label className="checkboxLabel">
-        <input type="checkbox" className="checkbox" />
-        Open Now
-      </label>
-      <label className="checkboxLabel">
-        <input type="checkbox" className="checkbox" />
-        Reservations
-      </label>
-    </div>
-    <div className="filterSection">
-      <button className="categoryButton">Mexican</button>
-      <button className="categoryButton">Sandwiches</button>
-    </div>
-  </div>
-);
+  );
+};
 
 const RestaurantEntry = ({ imageSrc, name, tags, rating, reviewCount, url }) => (
   <div className="restaurantEntry">

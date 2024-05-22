@@ -37,7 +37,17 @@ const AuthButtons = () => (
     </div>
 );
 
+const GoogleMap = () => (
+    <div className="mapPlaceholder"></div>
+);
 
+const MainHeader = () => (
+    <div className="mainHeader">
+        <Logo />
+        <SearchBar />
+        <AuthButtons />
+    </div>
+);
 
 const App = () => {
     return (
