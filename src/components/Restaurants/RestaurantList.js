@@ -4,6 +4,8 @@ import './RestaurantList.css';
 import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
+
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -130,7 +132,9 @@ const RestaurantEntry = ({ imageSrc, name, rating, cuisine, price, isOpen, featu
                         <span className="restaurantPrice">{price}</span>
                     </div>
                 </div>
-                <p className="restaurantDescription">{description}</p>
+                <div className="restaurantDescription">
+                  <FontAwesomeIcon icon={faRocketchat} /> {description}
+                </div>
                 {/* <div className="restaurantFeatures">
                     {features.delivery && <span>Delivery</span>}
                     {features.takeout && <span>Takeout</span>}
