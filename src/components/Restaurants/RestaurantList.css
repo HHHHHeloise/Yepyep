@@ -21,6 +21,7 @@
     color: #333;
     font-weight: bold;
 }
+
 .filterContainer h2,
 .filterContainer h3 {
     margin: 10px 0;
@@ -138,7 +139,7 @@
 .seeAll {
     font-weight: bold;
     color: #007BFF;
-    text-decoration: underline;  
+    text-decoration: underline;
     cursor: pointer;
     margin-top: 20px;
 }
@@ -196,6 +197,7 @@
 .restaurantRating {
     margin-right: 6px;
 }
+
 .restaurantMeta,
 .restaurantDescription,
 .restaurantFeatures {
@@ -294,6 +296,7 @@
         float: none;
     }
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
@@ -302,8 +305,9 @@
         width: 100%;
         float: none;
     }
+
     .filterContainer {
-            padding: 8px;
-            font-size: 12px;
+        padding: 8px;
+        font-size: 12px;
     }
 }

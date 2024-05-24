@@ -1,18 +1,15 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
-    /* Base font size */
 }
+
 .header {
     background-color: #ffffff;
-    /* Change header background to white */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
-    /* Increase padding for better spacing */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Add shadow for depth */
 }
 
 .logo {
@@ -27,10 +24,8 @@ body {
     display: flex;
     align-items: center;
     border: 1px solid #cccccc;
-    /* Add border for definition */
     border-radius: 4px;
     background-color: #f9f9f9;
-    /* Light grey background for the search area */
 }
 
 .searchInput,
@@ -38,12 +33,10 @@ body {
     border: none;
     padding: 8px 10px;
     margin-right: 5px;
-    /* Ensure inputs are not too wide */
 }
 
 .searchButton {
     background-color: #d32323;
-    /* Maintain Yelp red for the button */
     color: #ffffff;
     padding: 8px 12px;
     border-radius: 4px;
@@ -58,11 +51,8 @@ body {
     color: #333;
     text-decoration: none;
     border: 1px solid #ccc;
-    /* subtle border for definition */
     border-radius: 10px;
-    /* rounded corners for all links and buttons */
     margin-right: 8px;
-    /* space between elements */
     transition: background-color 0.3s ease-out;
     cursor: pointer;
 }
@@ -70,23 +60,16 @@ body {
 /* Styles for log in and sign up buttons */
 .button {
     background-color: #d32323;
-    /* Yelp red for sign up */
     color: white;
-    /* White text for better visibility */
     border: none;
-    /* No border for a cleaner button look */
 }
 
 .button:hover {
     background-color: #b31b1b;
-    /* Darker red on hover */
 }
 
-/* Modify hover effect for all navLinks and buttons */
 .navLink:hover,
 .button:hover {
     background-color: #cccccc;
-    /* Gray background on hover */
     color: #333;
-    /* Ensures text color remains readable */
 }

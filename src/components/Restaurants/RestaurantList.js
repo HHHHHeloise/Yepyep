@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaSearch, FaYelp } from 'react-icons/fa'; 
 import './RestaurantList.css';
-import ReactDOM from 'react-dom';
+import './Restaurants.css'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
