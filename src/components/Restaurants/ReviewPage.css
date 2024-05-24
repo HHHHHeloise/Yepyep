@@ -1,0 +1,26 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* About page specific styles */
+.hero {
+    background-image: url('path_to_lawn_image.jpg');
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+
+/* Additional styles for responsiveness and other elements */
