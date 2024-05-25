@@ -45,7 +45,7 @@ body {
 }
 
 .navLink {
-    display: inline-flex;
+    display: inline-block;
     padding: 8px 12px;
     background-color: transparent;
     color: #333;
@@ -71,4 +71,18 @@ body {
 .button:hover {
     background-color: #cccccc;
     color: #333;
+}
+
+@media (max-width: 1200px) {
+    .header {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 5px 10px;
+    }
+
+    .logo,
+    .searchContainer, .navLink {
+        flex-basis: auto;
+        width: auto;
+    }
 }

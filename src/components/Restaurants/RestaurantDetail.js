@@ -29,6 +29,7 @@ const SearchBar = () => (
     </header>
     );
 
+
 const images = [
     { src: 'https://s3-media0.fl.yelpcdn.com/bphoto/Hd09DnZQ3KQwYYZEHGEF_Q/348s.jpg', alt: 'Image 1' },
     { src: 'https://s3-media0.fl.yelpcdn.com/bphoto/0CZhclWC8rJvRHJtbQA4sw/o.jpg', alt: 'Image 2' },
@@ -46,7 +47,8 @@ const PhotoGallery = () => {
                 ))}
             </div>
             <div className="overlay-text">
-                Popeyes Louisiana Kitchen <br />⭐ 3.3 (36 reviews)
+                Popeyes Louisiana Kitchen
+                <br />⭐ 3.3 (36 reviews)
             </div>
             <button className="see-all-button">
                 <FaCamera /> See all 33 photos
@@ -55,34 +57,22 @@ const PhotoGallery = () => {
     );
 };
 
-const LocationHours = () => (
-    <div className="location-hours">
-        <h2>Location & Hours</h2>
-        <div className="map-info">
-            <div className="map-placeholder">Map will go here</div>
-            <div className="hours">
-                <p><strong>17 McGraw St</strong><br/>Shirley, NY 11967</p>
-                <p><a href="#">Get directions</a></p>
-                <ul>
-                    <li>Mon: 10:30 AM - 11:00 PM</li>
-                    <li>Tue: 10:30 AM - 11:00 PM</li>
-                    <li>Wed: 10:30 AM - 11:00 PM</li>
-                    <li>Thu: 10:30 AM - 11:00 PM</li>
-                    <li>Fri: 10:30 AM - 11:00 PM <span className="closed">Closed now</span></li>
-                    <li>Sat: 10:30 AM - 11:00 PM</li>
-                    <li>Sun: 10:30 AM - 11:00 PM</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-);
-
 const Buttons = () => (
-    <div className="buttons-container">
-        <button>Write a review</button>
-        <button>Add photo</button>
-        <button>Share</button>
-        <button>Save</button>
+    <div className="interactive-buttons">
+            <button className="button">Write a review</button>
+            <button className="button-add-photo">Add photo</button>
+            <button className="button-share">Share</button>
+            <button className="button-save">Save</button>
+        </div>
+)
+const OrderFood = () => (
+    <div className="order-contact-area">
+        <button className="button red">Start Order</button>
+        <div>No Fees | Pick up in 7-17 mins</div>
+        <div className="contact-info">
+            <p>Contact: (631) 395-9300</p>
+            <p>Get Directions</p>
+        </div>
     </div>
 );
 
@@ -93,24 +83,42 @@ const Menu = () => (
     </div>
 );
 
-const OrderFood = () => (
-    <div className="order-food-container">
-        <button>Start Order</button>
-        <div>No Fees | Pick up in 7-17 mins</div>
+const LocationHours = () => (
+    <div className="location-hours">
+        <h2>Location & Hours</h2>
+        <p>17 McGraw St, Shirley, NY 11967</p>
+        <p>Mon-Sun: 10:30 AM - 11:00 PM</p>
+        <h2>Location & Hours</h2>
+        <p>17 McGraw St, Shirley, NY 11967</p>
+        <p>Mon-Sun: 10:30 AM - 11:00 PM</p>
+        <h2>Location & Hours</h2>
+        <p>17 McGraw St, Shirley, NY 11967</p>
+        <p>Mon-Sun: 10:30 AM - 11:00 PM</p>
+        <h2>Location & Hours</h2>
+        <p>17 McGraw St, Shirley, NY 11967</p>
+        <p>Mon-Sun: 10:30 AM - 11:00 PM</p>
+        <h2>Location & Hours</h2>
+        <p>17 McGraw St, Shirley, NY 11967</p>
+        <p>Mon-Sun: 10:30 AM - 11:00 PM</p>
     </div>
 );
 
-const RestaurantDetail = () => {
-    return (
-        <div className="wrapper">
-            <SearchBar />
-            <PhotoGallery />
-            <Buttons />
-            <Menu />
-            <OrderFood />
-            <LocationHours />
+const RestaurantDetail = () => (
+    <div className="wrapper">
+        <SearchBar />
+        <PhotoGallery />
+        <div className='main-content'>
+            <div className="info-column">
+                <Buttons />
+                <Menu />
+                <LocationHours />
+            </div>
+            <div className="order-contact-area">
+                <OrderFood />
+            </div>
         </div>
-    );
-};
+        
+    </div>
+);
 
 export default RestaurantDetail;

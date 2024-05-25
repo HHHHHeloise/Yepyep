@@ -1,3 +1,70 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    display: flex;
+    border: none;
+    justify-content: space-between;
+}
+
+.info-column {
+    flex: 3;
+    padding: 20px;
+}
+
+/* OrderFood Container */
+.order-contact-area {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    /* Make sure this is the only border definition in this area */
+    border-radius: 4px;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Ensures content stacks vertically */
+}
+
+.order-contact-area .button.red {
+    background-color: #d32323;
+    color: white;
+    /* padding: 10px 20px; */
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+    /* Ensure margin is not causing excessive space */
+}
+
+/* .order-contact-area div {
+    font-size: 14px;
+    color: #666;
+    /* margin-bottom: 10px; */
+    /* Adjust or remove if causing layout issues */
+/* } */ */
+
+/* To control the height of the order-contact-area based on content */
+.order-contact-area {
+    height: auto;
+    /* Adjust based on content, remove fixed height if set */
+    max-height: 100vh;
+    /* Optional: to prevent it from getting too long */
+    overflow: auto;
+    /* Allows scrolling within the container if content overflows */
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Gallery Container */
 .gallery-container {
     /* margin-top: 50px; */
     position: relative;
@@ -22,6 +89,17 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }
 
 .overlay-text {
@@ -29,10 +107,21 @@
     bottom: 10px;
     left: 10px;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    line-height: 56px;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    display: inline;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 8px;
 }
 
 .see-all-button {
@@ -54,83 +143,103 @@
     background: rgba(255, 255, 255, 1);
 }
 
-.buttons-container,
-.menu-container,
-.order-food-container {
-    margin: 20px;
-    padding: 15px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    text-align: center;
+/* Buttons Container*/
+.button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.button {
-    padding: 10px 20px;
+.button-add-photo,
+.button-share,
+.button-save {
     margin: 5px;
-    background-color: red;
-    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #f6f6f6;
 }
 
 .button:hover {
-    background-color: darkred;
+    opacity: 0.8;
+    /* Slight visual feedback on hover */
 }
 
-.menu-container a,
-.order-food-container button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: blue;
-    color: white;
+/* Menu*/
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    border-radius: 4px;
+    /* margin-bottom: 20px; */
+}
+
+.menu-container a {
+    font-size: 16px;
+    color: #0073bb;
     text-decoration: none;
-    margin: 5px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #f6f6f6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.menu-container a:hover,
-.order-food-container button:hover {
-    background-color: darkblue;
+.menu-container a:hover {
+    background-color: #e6e6e6;
 }
 
-
-.location-hours {
-    margin: 20px;
-    padding: 15px;
-    background-color: #f8f8f8;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-}
-
-.map-info {
+.menu-links {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    padding: 10px 0;
 }
 
-.map-placeholder {
-    width: 50%;
-    height: 200px;
-    background-color: #ccc;
-    text-align: center;
-    line-height: 200px;
+.menu-link {
+    /* Space between menu links */
+    padding: 8px 16px;
+    background-color: #f6f6f6;
+    color: black;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    /* Borders for buttons */
+    border-radius: 4px;
+    text-decoration: none;
+    /* Removes underline from links */
+    display: inline-block;
+    cursor: pointer;
+}
+
+.menu-link:hover {
+    background-color: #e6e6e6;
+    /* Darker background on hover */
+}
+
+/* Location and Hours */
+.location-hours {
+    background-color: #fff;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.location-hours h2 {
+    font-size: 24px;
     color: #333;
+    margin-bottom: 10px;
 }
 
-.hours {
-    width: 45%;
-}
-
-.hours ul {
-    list-style: none;
-    padding: 0;
-}
-
-.hours li {
-    padding: 5px 0;
-}
-
-.closed {
-    color: red;
-    font-weight: bold;
+.location-hours p {
+    font-size: 16px;
+    color: #666;
 }
