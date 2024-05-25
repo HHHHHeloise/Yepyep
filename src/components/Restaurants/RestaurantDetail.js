@@ -100,17 +100,17 @@ const OrderFood = () => (
     </div>
 );
 
-const RestaurantListing = () => {
+const RestaurantDetail = () => {
     return (
         <div className="wrapper">
             <SearchBar />
             <PhotoGallery />
-            <LocationHours />
             <Buttons />
             <Menu />
             <OrderFood />
+            <LocationHours />
         </div>
     );
 };
 
-export default RestaurantListing;
+export default RestaurantDetail;

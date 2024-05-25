@@ -94,30 +94,6 @@
     background-color: darkblue;
 }
 
-.bottom-buttons {
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    width: 100%;
-    bottom: 5px;
-    /* 调整按钮距离底部的距离 */
-    left: 0;
-}
-
-.bottom-button {
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 20px;
-    /* 调整底部按钮的字体大小 */
-    border-radius: 5px;
-}
-
-.bottom-button:hover {
-    background: rgba(255, 255, 255, 1);
-}
-
 
 .location-hours {
     margin: 20px;
