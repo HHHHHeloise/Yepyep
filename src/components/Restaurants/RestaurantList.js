@@ -150,7 +150,7 @@ const RestaurantListing = () => {
     {
         id: 1,
         name: 'Popeyes Louisiana Kitchen',
-        imageSrc: 'https://s3-media0.fl.yelpcdn.com/bphoto/Hd09DnZQ3KQwYYZEHGEF_Q/348s.jpg', // Replace with actual image path or url
+        imageSrc: 'https://s3-media0.fl.yelpcdn.com/bphoto/Hd09DnZQ3KQwYYZEHGEF_Q/348s.jpg', 
         rating: 3.3,
         reviews: 36,
         cuisine: 'Fast Food, Chicken Wings',
@@ -206,7 +206,6 @@ const RestaurantListing = () => {
             <RestaurantEntry key={index} {...restaurant} />
           ))}
         </div>
-        <GoogleMapDisplay /> {/* Include the map component */}
       </div>
     </div>
   );
