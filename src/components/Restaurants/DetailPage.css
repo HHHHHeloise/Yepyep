@@ -4,26 +4,51 @@
 }
 
 .main-content {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: #fff;
+    border-radius: 8px;
     display: flex;
     border: none;
     justify-content: space-between;
 }
 
 .info-column {
+    /* display: flex; */
+    flex-direction: column;
+    align-items: flex-start;
     flex: 3;
-    padding: 20px;
+    padding: 40px;
+}
+
+.order-column {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.interactive-buttons {
+    margin-top: -40px;
+    margin-bottom: 32px;
 }
 
 /* OrderFood Container */
 .order-contact-area {
+    height: auto;
+    max-height: 100vh;
+    text-align: center;    
+    overflow: auto;
     flex: 1;
     background-color: #fff;
-    border: 1px solid #e0e0e0;
-    /* Make sure this is the only border definition in this area */
+    border: 0.5px solid #e0e0e0;
     border-radius: 4px;
     position: sticky;
     top: 0;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     /* Ensures content stacks vertically */
@@ -41,21 +66,10 @@
     /* Ensure margin is not causing excessive space */
 }
 
-/* .order-contact-area div {
+.order-contact-area div {
     font-size: 14px;
     color: #666;
-    /* margin-bottom: 10px; */
-    /* Adjust or remove if causing layout issues */
-/* } */ */
-
-/* To control the height of the order-contact-area based on content */
-.order-contact-area {
-    height: auto;
-    /* Adjust based on content, remove fixed height if set */
-    max-height: 100vh;
-    /* Optional: to prevent it from getting too long */
-    overflow: auto;
-    /* Allows scrolling within the container if content overflows */
+    margin-bottom: 10px; 
 }
 
 .contact-info p {
@@ -66,10 +80,10 @@
 
 /* Gallery Container */
 .gallery-container {
-    /* margin-top: 50px; */
+    margin-bottom: 20px;
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 480px;
     overflow: hidden;
 }
 
@@ -110,8 +124,8 @@
     padding: 10px;
     border-radius: 5px;
     font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 48px;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: bold;
     letter-spacing: -0.4px;
     line-height: 56px;
     word-break: break-word !important;
@@ -135,7 +149,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 24px;
+    font-size: 20px;
     border-radius: 5px;
 }
 
@@ -172,15 +186,41 @@
     /* Slight visual feedback on hover */
 }
 
+.menu-button {
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 24px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+}
+
+/* .menu-button-full {
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 24px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+} */
+
 /* Menu*/
 .menu-container {
-    display: flex;
-    justify-content: space-between;
+    margin: 5px;
+    padding-top: 32px;
+    padding-bottom: 20px;
     background-color: #fff;
-    padding: 20px;
     border-top: 1px solid #e0e0e0;
     border-radius: 4px;
-    /* margin-bottom: 20px; */
 }
 
 .menu-container a {
@@ -227,7 +267,8 @@
 /* Location and Hours */
 .location-hours {
     background-color: #fff;
-    padding: 20px;
+    margin:5px;
+    padding-top: 20px;
     border-top: 1px solid #e0e0e0;
     border-radius: 4px;
     margin-bottom: 20px;

@@ -78,14 +78,17 @@ const OrderFood = () => (
 
 const Menu = () => (
     <div className="menu-container">
-        <a href="#">Website menu</a>
-        <a href="#">Full menu</a>
+        <h3>Menu</h3>
+        <div>
+            <button className='menu-button'>Website menu</button>
+            <button className='menu-button'>Full menu</button>
+        </div>
     </div>
 );
 
 const LocationHours = () => (
     <div className="location-hours">
-        <h2>Location & Hours</h2>
+        <h3>Location & Hours</h3>
         <p>17 McGraw St, Shirley, NY 11967</p>
         <p>Mon-Sun: 10:30 AM - 11:00 PM</p>
         <h2>Location & Hours</h2>
@@ -113,7 +116,7 @@ const RestaurantDetail = () => (
                 <Menu />
                 <LocationHours />
             </div>
-            <div className="order-contact-area">
+            <div className="order-column">
                 <OrderFood />
             </div>
         </div>
