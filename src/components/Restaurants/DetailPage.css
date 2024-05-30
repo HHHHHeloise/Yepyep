@@ -4,7 +4,7 @@
 }
 
 .main-content {
-    width: 80%;
+    width: 85%;
     margin: 20px auto;
     display: flex;
     justify-content: space-between;
@@ -36,46 +36,95 @@
     margin-bottom: 32px;
 }
 
-/* OrderFood Container */
-.order-contact-area {
-    height: auto;
-    max-height: 100vh;
-    text-align: center;    
-    overflow: auto;
-    flex: 1;
-    background-color: #fff;
-    border: 0.5px solid #e0e0e0;
-    border-radius: 4px;
-    position: sticky;
-    top: 0;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    /* Ensures content stacks vertically */
+/* Contact Container */
+.contact-info {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    width: auto;
+    margin-bottom: 20px;
 }
 
-.order-contact-area .button.red {
-    background-color: #d32323;
-    color: white;
-    /* padding: 10px 20px; */
-    font-size: 16px;
+.contact-info .website-link {
+    border-top: none;
+    padding-top: 0px;
+    padding-bottom: 16px;
+    color: #027A97;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    text-align: left;
+    border-color: rgba(235, 235, 235, 1);
+}
+
+.phone-number {
+    border-top: 1px solid rgba(235, 235, 235, 1);
+    border-color: rgba(235, 235, 235, 1);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    color: rgba(45, 46, 47, 1);
+    text-align: left;
+}
+
+.phone-number p {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.get-directions {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-top: 1px solid rgba(235, 235, 235, 1);
+    border-color: rgba(235, 235, 235, 1);
+}
+
+.get-directions p{
+    color: #6E7072;
+}
+
+.contact-info .get-directions-link {
+    border-top: none;
+    color: #027A97;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    text-align: left;
+    border-color: rgba(235, 235, 235, 1);
+}
+
+.edit-button {
+    font-weight: 600;
+    justify-content: center;
+    width: auto;
+    display: inline-block;
+    margin: 0px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(200, 201, 202, 1);
     border-radius: 4px;
     cursor: pointer;
-    text-align: center;
-    margin-bottom: 10px;
-    /* Ensure margin is not causing excessive space */
+    height: 44px;
 }
 
-.order-contact-area div {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px; 
-}
-
-.contact-info p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #333;
+.edit-button:hover {
+    background-color: #f5f5f5;
 }
 
 /* Gallery Container */
@@ -162,15 +211,16 @@
     margin: 5px;
     padding: 10px 20px;
     font-size: 16px;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+        font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .button-add-photo,
 .button-share,
 .button-save {
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 5px;
     padding: 10px 20px;
     font-size: 16px;
@@ -178,7 +228,8 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #f6f6f6;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
 }
 
 .button:hover {
@@ -198,20 +249,9 @@
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 10px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
 }
-
-/* .menu-button-full {
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    margin-top: 24px;
-    padding-bottom: 10px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 10px;
-} */
 
 /* Menu*/
 .menu-container {
@@ -238,49 +278,186 @@
     background-color: #e6e6e6;
 }
 
-.menu-links {
-    display: flex;
-    justify-content: start;
-    padding: 10px 0;
-}
-
-.menu-link {
-    /* Space between menu links */
-    padding: 8px 16px;
-    background-color: #f6f6f6;
-    color: black;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    /* Borders for buttons */
-    border-radius: 4px;
-    text-decoration: none;
-    /* Removes underline from links */
-    display: inline-block;
-    cursor: pointer;
-}
-
-.menu-link:hover {
-    background-color: #e6e6e6;
-    /* Darker background on hover */
-}
 
 /* Location and Hours */
-.location-hours {
-    background-color: #fff;
-    margin:5px;
-    padding-top: 20px;
+.location-hours-container {
+    padding-top: 32px;
     border-top: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.location-hours-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.map-and-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-image {
+    width: 300px;
+    height: auto;
+}
+
+.address-direction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address {
+    text-align: left;
+}
+
+address.p {
+    margin:0;
+    padding:0;
+}
+.get-directions-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 20px;
+    cursor: pointer;
+    margin-left: 20px;
 }
 
-.location-hours h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
+.hours {
+    display: flex;
+    flex-direction: column;
 }
 
-.location-hours p {
-    font-size: 16px;
-    color: #666;
+.hours-table {
+    width: 100%;
+    border-collapse: collapse;
 }
+
+.hours-table td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+.hours-table .status {
+    color: green;
+    text-align: right;
+}
+
+.hours-table .closed {
+    color: red;
+    text-align: right;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.hours-row span:last-child {
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+.suggest-edit-button {
+    margin-top: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    align-items: center;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    height: 44px;
+}
+
+.suggest-edit-button::before {
+    content: url('https: //maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=');
+}
+
+/* .location-hours-container {
+    padding-top: 32px;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.suggest-edit-button {
+    margin-top: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    align-items: center;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(200, 201, 202, 1);
+    border-radius: 4px;
+    height: 44px;
+}
+
+.suggest-edit-button::before {
+    content: url('https: //maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=');
+    margin-right: 5px;
+}
+
+.map-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.map-placeholder {
+    width: 50%;
+    height: auto;
+    text-align: center;
+    line-height: 200px;
+    position: relative;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: auto;
+}
+
+.address-direction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address-direction p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.direction-button {
+    background-color: #0073bb;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.hours {
+    width: 45%;
+}
+
+.hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hours li {
+    padding: 5px 0;
+}
+
+.closed {
+    color: red;
+    font-weight: bold;
+} */
