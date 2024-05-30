@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaBook, FaCamera, FaSave } from 'react-icons/fa';
 import { FaSearch, FaYelp } from 'react-icons/fa'; 
-import './Restaurants.css'
+import './Restaurants.css';
 import './RestaurantList.css'; 
-import './DetailPage.css'
+import  RecommendedReviews from './ReviewPage';
+import './DetailPage.css';
+import './ReviewPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
@@ -192,12 +194,12 @@ const RestaurantDetail = () => (
                 <Buttons />
                 <Menu />
                 <LocationAndHours />
+                <RecommendedReviews />
             </div>
             <div className="order-column">
                 <ContactInfo />
             </div>
         </div>
-        
     </div>
 );
 
