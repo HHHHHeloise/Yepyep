@@ -1,0 +1,10 @@
+.star-rating-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating-label {
+    margin-left: 10px;
+    font-size: 18px;
+}
