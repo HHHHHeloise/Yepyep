@@ -92,7 +92,7 @@ const ReviewList = () => (
             <div className="review-content">
                 <div className="review-header">
                     <h5>Colette G.</h5>
-                    <span className="user-tag">Elite 24</span>
+                    {/* <span className="user-tag">Elite 24</span> */}
                 </div>
                 <p className="user-location">Shoreham, NY</p>
                 <div className="review-metrics">

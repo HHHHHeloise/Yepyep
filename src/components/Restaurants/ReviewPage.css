@@ -181,7 +181,6 @@
 
 .user-location {
     color: #757575;
-    margin-top: 5px;
 }
 
 .review-metrics {
@@ -229,6 +228,7 @@
 }
 
 .action-menu {
+    width: 200px;
     display: none;
     position: absolute;
     top: 20px;
