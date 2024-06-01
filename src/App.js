@@ -4,7 +4,7 @@ import Login from './components/Auth/Login';
 import RestaurantList from './components/Restaurants/RestaurantList';
 import Signup from './components/Auth/Signup';
 import HomePage from './components/Restaurants/Restaurant';
-import DetailPage from './components/Restaurants/Restaurant';
+import DetailPage from './components/Restaurants/RestaurantDetail';
 
 export default function App() {
   let element = useRoutes([
