@@ -17,8 +17,8 @@ const UserReviewPrompt = () => {
                 />
             </div>
             <div className="user-details">
-                <h4>Username</h4>
-                <p>Location</p>
+                <div style={{ fontWeight: 'bold' }}>Username</div>
+                <div>Location</div>
                 <div className="user-metrics">
                     <FontAwesomeIcon icon={faCamera} /> <span>0</span>
                     <FontAwesomeIcon icon={faStar} /> <span>0</span>

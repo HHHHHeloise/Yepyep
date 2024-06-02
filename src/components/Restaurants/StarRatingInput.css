@@ -1,7 +1,7 @@
 .star-rating-input {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    font-size: 13px;
 }
 
 .rating-label {

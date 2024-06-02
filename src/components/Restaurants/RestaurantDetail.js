@@ -158,32 +158,6 @@ const LocationAndHours = () => (
     </div>
 );
 
-// const LocationHours = () => (
-//     <div className="location-hours-container">
-//         <h2>Location & Hours</h2>
-//         <div className="map-info">
-//             <div className="map-placeholder">
-//                 <img src="https://maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=" alt="Map" />
-//                 <div className="address-direction">
-//                     <span><strong>17 McGraw St</strong><br />Shirley, NY 11967</span>
-//                     <button className="direction-button">Get directions</button>
-//                 </div>
-//             </div>
-//             <div className="hours">
-//                 <ul>
-//                     <li>Mon: 10:30 AM - 11:00 PM</li>
-//                     <li>Tue: 10:30 AM - 11:00 PM</li>
-//                     <li>Wed: 10:30 AM - 11:00 PM</li>
-//                     <li>Thu: 10:30 AM - 11:00 PM</li>
-//                     <li>Fri: 10:30 AM - 11:00 PM <span className="closed">Closed now</span></li>
-//                     <li>Sat: 10:30 AM - 11:00 PM</li>
-//                     <li>Sun: 10:30 AM - 11:00 PM</li>
-//                 </ul>
-//             </div>
-//         </div>
-//         <button className="suggest-edit-button">Suggest an edit</button>
-//     </div>
-// );
 
 const RestaurantDetail = () => (
     <div className="wrapper">
