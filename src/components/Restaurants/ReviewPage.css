@@ -169,17 +169,9 @@
     align-items: center;
 }
 
-.user-tag {
-    background-color: #e4002b;
-    color: #fff;
-    padding: 2px 5px;
-    border-radius: 4px;
-    margin-left: 10px;
-    font-size: 12px;
-}
-
 .user-location {
     color: #757575;
+    margin-top: 5px;
 }
 
 .review-metrics {
@@ -228,7 +220,7 @@
 
 .action-menu {
     width: 200px;
-    display: none;
+    display: block;
     position: absolute;
     top: 20px;
     right: 0;
@@ -237,10 +229,6 @@
     border-radius: 4px;
     overflow: hidden;
     z-index: 1;
-}
-
-.review-actions:hover .action-menu {
-    display: block;
 }
 
 .action-item {

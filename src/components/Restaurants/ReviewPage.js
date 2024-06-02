@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './OverallRating.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCamera, faSearch, faCaretDown, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
@@ -79,53 +79,76 @@ const ReviewFilters = () => (
     </div>
 );
 
-const ReviewList = () => (
-    <div className="review-list">
-        <div className="review-item">
-            <div className="review-avatar">
-                <img
-                    src="https://s3-media0.fl.yelpcdn.com/assets/public/default_user_avatar_64x64_v2.yji-19e0a8ff85b15f4bbd79.png"
-                    alt="Review Avatar"
-                    className="review-avatar-img"
-                />
-            </div>
-            <div className="review-content">
-                <div className="review-header">
-                    <h5>Colette G.</h5>
-                    {/* <span className="user-tag">Elite 24</span> */}
+const ReviewList = () => {
+    const [menuVisible, setMenuVisible] = useState(false);
+    const actionMenuRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (actionMenuRef.current && !actionMenuRef.current.contains(event.target)) {
+            setMenuVisible(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div className="review-list">
+            <div className="review-item">
+                <div className="review-avatar">
+                    <img
+                        src="https://s3-media0.fl.yelpcdn.com/assets/public/default_user_avatar_64x64_v2.yji-19e0a8ff85b15f4bbd79.png"
+                        alt="Review Avatar"
+                        className="review-avatar-img"
+                    />
                 </div>
-                <p className="user-location">Shoreham, NY</p>
-                <div className="review-metrics">
-                    <span>162 <FontAwesomeIcon icon={faCamera} /></span>
-                    <span>500 <FontAwesomeIcon icon={faStar} /></span>
-                    <span>462 <FontAwesomeIcon icon={faStar} /></span>
-                </div>
-                <div className="review-rating">
-                    {[1, 2, 3, 4, 5].map((star, index) => (
-                        <FontAwesomeIcon icon={faStar} key={index} className="star-icon" />
-                    ))}
-                </div>
-                <p className="review-date">Dec 10, 2021</p>
-                <p className="review-text">
-                    This review is strictly for chicken sandwich, and the drive thru. WOW! Those commercials you see of people moaning in their vehicle over how good it is...is no lie!
-                </p>
-                <p className="review-text">
-                    My family hates Popeyes. I love it. Happened to be in area, and alone..so drive thru sandwich as it's more car friendly than a chicken meal.
-                </p>
-                <p className="review-text">
-                    I'm blown away. So so good.
-                </p>
-                <div className="review-actions">
-                    <FontAwesomeIcon icon={faEllipsisH} className="ellipsis-icon" />
-                    <div className="action-menu">
-                        <div className="action-item">Share review</div>
-                        <div className="action-item">Embed review</div>
+                <div className="review-content">
+                    <div className="review-header">
+                        <h5>Colette G.</h5>
+                    </div>
+                    <p className="user-location">Shoreham, NY</p>
+                    <div className="review-metrics">
+                        <span>162 <FontAwesomeIcon icon={faCamera} /></span>
+                        <span>500 <FontAwesomeIcon icon={faStar} /></span>
+                        <span>462 <FontAwesomeIcon icon={faStar} /></span>
+                    </div>
+                    <div className="review-rating">
+                        {[1, 2, 3, 4, 5].map((star, index) => (
+                            <FontAwesomeIcon icon={faStar} key={index} className="star-icon" />
+                        ))}
+                    </div>
+                    <p className="review-date">Dec 10, 2021</p>
+                    <p className="review-text">
+                        This review is strictly for chicken sandwich, and the drive thru. WOW! Those commercials you see of people moaning in their vehicle over how good it is...is no lie!
+                    </p>
+                    <p className="review-text">
+                        My family hates Popeyes. I love it. Happened to be in area, and alone..so drive thru sandwich as it's more car friendly than a chicken meal.
+                    </p>
+                    <p className="review-text">
+                        I'm blown away. So so good.
+                    </p>
+                    <div className="review-actions" ref={actionMenuRef}>
+                        <FontAwesomeIcon
+                            icon={faEllipsisH}
+                            className="ellipsis-icon"
+                            onClick={() => setMenuVisible(!menuVisible)}
+                        />
+                        {menuVisible && (
+                            <div className="action-menu">
+                                <div className="action-item">Share review</div>
+                                <div className="action-item">Embed review</div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
 const RecommendedReviews = () => (
     <div className="recommended-reviews-container">
