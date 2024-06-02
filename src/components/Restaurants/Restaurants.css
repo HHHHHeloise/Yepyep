@@ -5,7 +5,7 @@ body {
 
 .header {
     background-color: #ffffff;
-    display: flex;
+    display:flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
@@ -57,7 +57,6 @@ body {
     cursor: pointer;
 }
 
-/* Styles for log in and sign up buttons */
 .button {
     background-color: #d32323;
     color: white;
@@ -72,4 +71,18 @@ body {
 .button:hover {
     background-color: #cccccc;
     color: #333;
+}
+
+@media (max-width: 1200px) {
+    .header {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 5px 10px;
+    }
+
+    .logo,
+    .searchContainer, .navLink {
+        flex-basis: auto;
+        width: auto;
+    }
 }

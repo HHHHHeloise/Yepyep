@@ -1,26 +1,240 @@
-body,
-html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.recommended-reviews-container {
+    padding-top: 32px;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+    margin-top: 20px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* About page specific styles */
-.hero {
-    background-image: url('path_to_lawn_image.jpg');
-    height: 400px;
-    background-size: cover;
+.user-review-prompt {
+    height: 120px;
+    min-width: 700px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-.hero h1 {
-    font-size: 36px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+.user-avatar {
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30px;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.user-metrics {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.user-metrics span {
+    margin-left: 5px;
+    margin-right: 10px;
+    color: #757575;
+}
+
+.user-review-action {
+    margin-left: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.start-review-link {
+    margin-top: 8px;
+    color: rgb(2, 122, 151);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.start-review-link:hover {
+    text-decoration: underline;
 }
 
 
 
-/* Additional styles for responsiveness and other elements */
+
+
+.review-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+        align-items: center;
+}
+
+.filter-button:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+}
+
+.caret-icon {
+    margin-left: 5px;
+}
+
+.search-reviews {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #fff;
+}
+
+.search-reviews input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 20px;
+    flex-grow: 1;
+}
+
+.search-reviews input::placeholder {
+    color: #999;
+}
+
+.search-reviews svg {
+    color: #999;
+}
+
+/* Review List */
+.review-list {
+    margin-top: 20px;
+}
+
+.review-item {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    position: relative;
+}
+
+.review-avatar {
+    margin-right: 20px;
+}
+
+.review-avatar-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+}
+
+.user-location {
+    color: #757575;
+    margin-top: 5px;
+}
+
+.review-metrics {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.review-metrics span {
+    margin-right: 10px;
+    font-size: 12px;
+    color: #757575;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.star-icon {
+    color: #ffb400;
+    margin-right: 2px;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 5px;
+}
+
+.review-text {
+    margin-top: 10px;
+}
+
+.review-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.ellipsis-icon {
+    cursor: pointer;
+}
+
+.action-menu {
+    width: 200px;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.action-item {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.action-item:hover {
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,464 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 1000px;
+}
+
+.main-content {
+    width: 85%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    border: none;
+    justify-content: space-between;
+}
+
+.info-column {
+    /* display: flex; */
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 3;
+    padding: 40px;
+}
+
+.order-column {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.interactive-buttons {
+    margin-top: -40px;
+    margin-bottom: 32px;
+}
+
+/* Contact Container */
+.contact-info {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.contact-info .website-link {
+    border-top: none;
+    padding-top: 0px;
+    padding-bottom: 16px;
+    color: #027A97;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    text-align: left;
+    border-color: rgba(235, 235, 235, 1);
+}
+
+.phone-number {
+    border-top: 1px solid rgba(235, 235, 235, 1);
+    border-color: rgba(235, 235, 235, 1);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    color: rgba(45, 46, 47, 1);
+    text-align: left;
+}
+
+.phone-number p {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.get-directions {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-top: 1px solid rgba(235, 235, 235, 1);
+    border-color: rgba(235, 235, 235, 1);
+}
+
+.get-directions p{
+    color: #6E7072;
+}
+
+.contact-info .get-directions-link {
+    border-top: none;
+    color: #027A97;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    text-align: left;
+    border-color: rgba(235, 235, 235, 1);
+}
+
+.edit-button {
+    font-weight: 600;
+    justify-content: center;
+    width: auto;
+    display: inline-block;
+    margin: 0px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(200, 201, 202, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    height: 44px;
+}
+
+.edit-button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Gallery Container */
+.gallery-container {
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+}
+
+.images-row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container {
+    flex: 1;
+    overflow: hidden;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -0.4px;
+    line-height: 56px;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    display: inline;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 8px;
+}
+
+.see-all-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.see-all-button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Buttons Container*/
+.button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+        font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.button-add-photo,
+.button-share,
+.button-save {
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.button:hover {
+    opacity: 0.8;
+    /* Slight visual feedback on hover */
+}
+
+.menu-button {
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 24px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+/* Menu*/
+.menu-container {
+    margin: 5px;
+    padding-top: 32px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.menu-container a {
+    font-size: 16px;
+    color: #0073bb;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #f6f6f6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.menu-container a:hover {
+    background-color: #e6e6e6;
+}
+
+
+/* Location and Hours */
+.location-hours-container {
+    padding-top: 32px;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.location-hours-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.map-and-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-image {
+    width: 300px;
+    height: auto;
+}
+
+.address-direction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address {
+    text-align: left;
+}
+
+address.p {
+    margin:0;
+    padding:0;
+}
+.get-directions-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.hours {
+    display: flex;
+    flex-direction: column;
+}
+
+.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hours-table td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+.hours-table .status {
+    color: green;
+    text-align: right;
+}
+
+.hours-table .closed {
+    color: red;
+    text-align: right;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.hours-row span:last-child {
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+.suggest-edit-button {
+    margin-top: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    align-items: center;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    height: 44px;
+}
+
+.suggest-edit-button::before {
+    content: url('https: //maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=');
+}
+
+/* .location-hours-container {
+    padding-top: 32px;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.suggest-edit-button {
+    margin-top: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    align-items: center;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(200, 201, 202, 1);
+    border-radius: 4px;
+    height: 44px;
+}
+
+.suggest-edit-button::before {
+    content: url('https: //maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=');
+    margin-right: 5px;
+}
+
+.map-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.map-placeholder {
+    width: 50%;
+    height: auto;
+    text-align: center;
+    line-height: 200px;
+    position: relative;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: auto;
+}
+
+.address-direction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address-direction p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.direction-button {
+    background-color: #0073bb;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.hours {
+    width: 45%;
+}
+
+.hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hours li {
+    padding: 5px 0;
+}
+
+.closed {
+    color: red;
+    font-weight: bold;
+} */
