@@ -44,7 +44,7 @@ const StarRatingInput = ({ setRating }) => {
                         <FontAwesomeIcon
                             icon={faStar}
                             className="star"
-                            size="3x"
+                            size="2x"
                             color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
                         />
                     </span>
