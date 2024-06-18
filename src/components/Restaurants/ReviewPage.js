@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './OverallRating.css';
+import './WriteReviewPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCamera, faSearch, faCaretDown, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import StarRatingInput from './StarRatingInput';
+import axios from 'axios';
+
 
 const UserReviewPrompt = () => {
     const [rating, setRating] = useState(0);
@@ -150,14 +153,101 @@ const ReviewList = () => {
     );
 };
 
-const RecommendedReviews = () => (
-    <div className="recommended-reviews-container">
-        <h3>Recommended Reviews</h3>
-        <UserReviewPrompt />
-        <OverallRating />
-        <ReviewFilters />
-        <ReviewList />
-    </div>
-);
+const WriteReviewForm = ({ restaurantId, onCancel }) => {
+    const [rating, setRating] = useState(0);
+    const [reviewText, setReviewText] = useState('');
+    const [tags, setTags] = useState({ food: false, service: false, ambiance: false });
+
+    const handleTagClick = (tag) => {
+        setTags({ ...tags, [tag]: !tags[tag] });
+    };
+
+    const submitReview = () => {
+        const token = window.sessionStorage.getItem("token");
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        };
+
+        const data = {
+            restaurantId,
+            rating,
+            reviewText,
+            tags
+        };
+
+        axios.post('http://localhost:8080/api/reviews', data, config)
+            .then(response => {
+                console.log(response.data);
+                onCancel();
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
+    return (
+        <div className="write-review-page">
+            <h1>Write a Review</h1>
+            <div className="review-input">
+                <StarRatingInput setRating={setRating} />
+                <textarea 
+                    placeholder="Write your review here..." 
+                    value={reviewText} 
+                    onChange={(e) => setReviewText(e.target.value)}
+                />
+                <div className="tags">
+                    <span onClick={() => handleTagClick('food')} className={tags.food ? 'tag active' : 'tag'}>Food</span>
+                    <span onClick={() => handleTagClick('service')} className={tags.service ? 'tag active' : 'tag'}>Service</span>
+                    <span onClick={() => handleTagClick('ambiance')} className={tags.ambiance ? 'tag active' : 'tag'}>Ambiance</span>
+                </div>
+            </div>
+            <button className="post-review-button" onClick={submitReview}>Post Review</button>
+            <button className="cancel-button" onClick={onCancel}>Cancel</button>
+        </div>
+    );
+};
+
+
+const RecommendedReviews = ({ restaurantId }) => {
+    const [reviews, setReviews] = useState([]);
+    const [averageRating, setAverageRating] = useState(0);
+    const [writingReview, setWritingReview] = useState(false);
+
+    const fetchReviews = () => {
+        axios.get(`http://localhost:8080/api/restaurants/${restaurantId}/reviews`)
+            .then(response => {
+                setReviews(response.data.reviews);
+                setAverageRating(response.data.averageRating);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
+    useEffect(() => {
+        fetchReviews();
+    }, [restaurantId]);
+
+    return (
+        <div className="recommended-reviews-container">
+            {writingReview ? (
+                <WriteReviewForm 
+                    restaurantId={restaurantId} 
+                    onCancel={() => setWritingReview(false)} 
+                />
+            ) : (
+                <>
+                    <h3>Recommended Reviews</h3>
+                    <UserReviewPrompt onWriteReview={() => setWritingReview(true)} />
+                    <OverallRating averageRating={averageRating} reviewCount={reviews.length} />
+                    <ReviewFilters />
+                    <ReviewList reviews={reviews} />
+                </>
+            )}
+        </div>
+    );
+};
 
 export default RecommendedReviews;

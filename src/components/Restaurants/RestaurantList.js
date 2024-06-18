@@ -6,34 +6,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
 
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-const containerStyle = {
-    width: '400px',
-    height: '400px',
-};
+// const containerStyle = {
+//     width: '400px',
+//     height: '400px',
+// };
 
-const center = {
-    lat: -34.397,
-    lng: 150.644
-};
+// const center = {
+//     lat: -34.397,
+//     lng: 150.644
+// };
 
-const GoogleMapDisplay = () => {
-    return (
-        <LoadScript
-        googleMapsApiKey="AIzaSyCs17LYMw0FD7xUQg4oNFOfDjzCpEdCXwU">
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-        >
-            <Marker position={center} />
-        </GoogleMap>
-        </LoadScript>
-    )
-}
-
-
+// // const GoogleMapDisplay = () => {
+// //     return (
+// //         <LoadScript
+// //         googleMapsApiKey="AIzaSyCs17LYMw0FD7xUQg4oNFOfDjzCpEdCXwU">
+// //         <GoogleMap
+// //             mapContainerStyle={containerStyle}
+// //             center={center}
+// //             zoom={10}
+// //         >
+// //             <Marker position={center} />
+// //         </GoogleMap>
+// //         </LoadScript>
+// //     )
+// // }
 
 const SearchBar = () => (
   <header className="header">

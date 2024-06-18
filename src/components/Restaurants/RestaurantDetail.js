@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaBook, FaCamera, FaSave } from 'react-icons/fa';
+import { FaBook, FaCamera } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { FaSearch, FaYelp } from 'react-icons/fa'; 
 import './Restaurants.css';
 import './RestaurantList.css'; 
@@ -9,11 +10,9 @@ import './ReviewPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
-import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { FaArrowUpFromBracket, FaArrowUpRightFromSquare, FaBookBookmark } from 'react-icons/fa6';
+import { FaArrowUpFromBracket, FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 
 const SearchBar = () => (
@@ -65,26 +64,30 @@ const PhotoGallery = () => {
     );
 };
 
-const Buttons = () => (
-    <div className="interactive-buttons">
-        <button className="button">
-            <FontAwesomeIcon icon={faStar} />
-            <span style={{ marginLeft: '8px' }}>Write a review</span>
-        </button>
-        <button className="button-add-photo">
-            <FontAwesomeIcon icon={faCamera} />
-            <span style={{ marginLeft: '8px' }}>Add photo</span>
-        </button>
-        <button className="button-share">
-            <FaArrowUpFromBracket />
-            <span style={{ marginLeft: '8px' }}>Share</span>
-        </button>
-        <button className="button-save">
-            <FontAwesomeIcon icon={faBookmark} />
-            <span style={{ marginLeft: '8px' }}>Save</span>
-        </button>
+
+const Buttons = () => {
+    return (
+        <div className="interactive-buttons">
+            <Link to="/detail/write-review" className="write-review-link">
+                <FontAwesomeIcon icon={faStar} />
+                <span style={{ marginLeft: '8px' }}>Write a review</span>
+            </Link>
+            <button className="button-add-photo">
+                <FontAwesomeIcon icon={faCamera} />
+                <span style={{ marginLeft: '8px' }}>Add photo</span>
+            </button>
+            <button className="button-share">
+                <FaArrowUpFromBracket />
+                <span style={{ marginLeft: '8px' }}>Share</span>
+            </button>
+            <button className="button-save">
+                <FontAwesomeIcon icon={faBookmark} />
+                <span style={{ marginLeft: '8px' }}>Save</span>
+            </button>
         </div>
-)
+    );
+};
+
 
 const ContactInfo = () => (
     <div className="contact-info">
