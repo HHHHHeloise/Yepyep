@@ -3,6 +3,7 @@ import './Restaurants.css';
 import './RestaurantList.css'; 
 import './DetailPage.css';
 import './ReviewPage.css';
+import './SuccessPage.css';
 import SearchBar from './Restaurant';
 
 function SuccessPage() {
