@@ -1,69 +1,54 @@
 .write-review-page {
     max-width: 600px;
-    margin: 0 auto;
+    margin-top: 24px;
+    margin: auto;
     padding: 20px;
-    background: #fff;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-box {
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.write-review-page h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-textarea {
-    width: 100%;
-    height: 300px;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 20px;
     margin-bottom: 20px;
-    border-radius: 4px;
-    border: 2px solid #ccc;
 }
 
-.rating {
+.star-rating-input {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.rating button {
-    background: none;
+.review-textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
     border: none;
-    cursor: pointer;
-    padding: 0;
-    font-size: 24px;
-    margin-right: 5px;
-}
-
-.rating .on {
-    color: #d32323;
-}
-
-.rating .off {
-    color: #ccc;
+    outline: none;
+    resize: none;
+    background: none;
 }
 
 .tags {
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .tag {
+    font-size: 12px;
     display: inline-block;
-    padding: 5px 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    background: #f1f1f1;
-    border-radius: 20px;
+    padding: 4px;
+    color: rgb(110, 112, 114);
+    white-space: nowrap;
+    background-color: rgb(240, 240, 240);
+    border-radius: 4x;
     cursor: pointer;
-    border: 1px solid #ccc;
-}
-
-.tag.active {
-    background: #d32323;
-    color: #fff;
-    border-color: #d32323;
 }
 
 .post-review-button {
@@ -80,33 +65,17 @@ textarea {
     background: #a81c1c;
 }
 
-.submit-success {
-    color: green;
-    margin-top: 10px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-
-
-.submit-success-page {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.submit-success-page h2 {
+.logo {
     font-size: 24px;
-    color: #d32323;
-}
-
-.submit-success-page p {
-    font-size: 18px;
-}
-
-.submit-success-page a {
-    color: #0073bb;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.submit-success-page a:hover {
-    color: #0056a3;
+    font-weight: bold;
 }

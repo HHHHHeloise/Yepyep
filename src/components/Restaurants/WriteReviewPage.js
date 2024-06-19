@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { FaYelp } from 'react-icons/fa';
 import StarRatingInput from './StarRatingInput'; 
 import './WriteReviewPage.css';
 
@@ -9,6 +10,7 @@ function WriteReviewPage() {
     const [submitted, setSubmitted] = useState(false);
     const [rating, setRating] = useState(0);
     const [selectedTags, setSelectedTags] = useState([]);
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         setReview(event.target.value);
@@ -30,6 +32,7 @@ function WriteReviewPage() {
             setReview(""); 
             setRating(0);
             setSelectedTags([]);
+            navigate('/detail/write-review/success'); // Redirect to success page
         }, 1000); 
     };
 
@@ -43,7 +46,7 @@ function WriteReviewPage() {
         <div>
             <header className="header">
                 <div className="logo">
-                    <FaYelp size="30" style={{ color: 'white' }} /> YYYYYelppppppp
+                    <FaYelp size="30" style={{ color: 'white' }} /> Yelp
                 </div>
                 <div>
                     <button className="navLink">Log In</button>
@@ -52,18 +55,10 @@ function WriteReviewPage() {
             </header>
             <div className="write-review-page">
                 <h2>Popeyes Louisiana Kitchen</h2>
-                {submitted ? (
-                    <Link to="/detail/write-review/success" className="submit-success-link">
-                        Review submitted! Click here to see your live review.
-                    </Link>
-                ) : (
-                    <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="review-form">
+                    <div className="review-box">
                         <StarRatingInput setRating={setRating} />
-                        <textarea 
-                            value={review}
-                            onChange={handleInputChange}
-                            placeholder="Share your experience..."
-                        ></textarea>
+                        <p> A few things to consider in your review</p>
                         <div className="tags">
                             {['Food', 'Service', 'Ambiance'].map(tag => (
                                 <span 
@@ -75,11 +70,17 @@ function WriteReviewPage() {
                                 </span>
                             ))}
                         </div>
-                        <button type="submit" className="post-review-button" disabled={submitting}>
-                            {submitting ? 'Submitting...' : 'Post Review'}
-                        </button>
-                    </form>
-                )}
+                        <textarea 
+                            value={review}
+                            onChange={handleInputChange}
+                            placeholder="Share your experience..."
+                            className="review-textarea"
+                        ></textarea>
+                    </div>
+                    <button type="submit" className="post-review-button" disabled={submitting}>
+                        {submitting ? 'Submitting...' : 'Post Review'}
+                    </button>
+                </form>
             </div>
         </div>
     );
