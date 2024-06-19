@@ -58,7 +58,7 @@ function WriteReviewPage() {
                 <form onSubmit={handleSubmit} className="review-form">
                     <div className="review-box">
                         <StarRatingInput setRating={setRating} />
-                        <p> A few things to consider in your review</p>
+                        <div className='reminder'>A few things to consider in your review </div>
                         <div className="tags">
                             {['Food', 'Service', 'Ambiance'].map(tag => (
                                 <span 
