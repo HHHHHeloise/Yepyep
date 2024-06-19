@@ -1,0 +1,23 @@
+.submit-success-page {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.submit-success-page h2 {
+    font-size: 24px;
+    color: #d32323;
+}
+
+.submit-success-page p {
+    font-size: 18px;
+}
+
+.submit-success-page a {
+    color: #0073bb;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.submit-success-page a:hover {
+    color: #0056a3;
+}

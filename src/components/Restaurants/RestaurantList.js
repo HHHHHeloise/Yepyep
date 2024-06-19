@@ -2,67 +2,10 @@ import React from 'react';
 import { FaSearch, FaYelp } from 'react-icons/fa'; 
 import './RestaurantList.css';
 import './Restaurants.css'; 
+import SearchBar from './Restaurant';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
-
-// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
-// const containerStyle = {
-//     width: '400px',
-//     height: '400px',
-// };
-
-// const center = {
-//     lat: -34.397,
-//     lng: 150.644
-// };
-
-// // const GoogleMapDisplay = () => {
-// //     return (
-// //         <LoadScript
-// //         googleMapsApiKey="AIzaSyCs17LYMw0FD7xUQg4oNFOfDjzCpEdCXwU">
-// //         <GoogleMap
-// //             mapContainerStyle={containerStyle}
-// //             center={center}
-// //             zoom={10}
-// //         >
-// //             <Marker position={center} />
-// //         </GoogleMap>
-// //         </LoadScript>
-// //     )
-// // }
-
-const SearchBar = () => (
-  <header className="header">
-    <div className="logo">
-      <FaYelp size="30" style={{color: 'white'}} /> YYYYYelppppppp
-    </div>
-    <div className="searchContainer">
-      <input
-        type="text"
-        placeholder="Restaurants"
-        className="searchInput"
-        aria-label="Search for restaurants"
-      />
-      <input
-        type="text"
-        placeholder="Brookhaven, NY 11719"
-        className="locationInput"
-        aria-label="Location"
-      />
-      <button className="searchButton">
-        <FaSearch />
-      </button>
-    </div>
-    <div className="navLinks">
-      <a href="#" class="navLink">Yelp for Business</a>
-      <a href="#" class="navLink">Write a Review</a>
-      <a href="#" class="navLink button">Log In</a>
-      <a href="#" class="navLink button">Sign Up</a>
-    </div>
-  </header>
-);
 
 
 const Filters = () => {

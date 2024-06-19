@@ -45,9 +45,7 @@
 
 .filterButton:hover {
     background-color: #e0e0e0;
-    /* Gray background on hover */
     color: #333;
-    /* Ensures text color remains readable */
 }
 
 .filterButton:first-child {
@@ -69,13 +67,10 @@
 .checkboxLabel {
     display: flex;
     align-items: center;
-    /* Centers the checkbox and text vertically */
     margin-bottom: 10px;
-    /* Adds space between the checkbox entries */
     position: relative;
     cursor: pointer;
     font-size: 13px;
-    /* Adjust font size as needed */
 }
 
 .checkboxLabel input[type='checkbox'] {
@@ -103,7 +98,6 @@
 
 .checkboxLabel input[type='checkbox']:hover::before {
     background: rgba(0, 0, 0, 0.1);
-    /* Color of the hover effect */
 }
 
 .checkboxLabel input[type='checkbox']:checked::after {
@@ -253,9 +247,7 @@
 .map {
     flex: 2;
     height: 400px;
-    /* Set a fixed height for the map */
     background-color: #e0e0e0;
-    /* Placeholder color if the map doesn't load */
 }
 
 .container {
