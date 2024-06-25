@@ -4,13 +4,17 @@ import Login from './components/Auth/Login';
 import RestaurantList from './components/Restaurants/RestaurantList';
 import Signup from './components/Auth/Signup';
 import HomePage from './components/Restaurants/Restaurant';
-import DetailPage from './components/Restaurants/RestaurantDetail';
+import RestaurantDetail from './components/Restaurants/RestaurantDetail';
+import WriteReviewPage from './components/Restaurants/WriteReviewPage'; 
+import SuccessPage from './components/Restaurants/SuccessPage';
 
 export default function App() {
   let element = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/home', element: <HomePage /> },
-    { path: '/detail', element: <DetailPage /> },
+    { path: '/detail', element: <RestaurantDetail /> },
+    { path: '/detail/write-review', element: <WriteReviewPage /> },
+    { path: '/detail/write-review/success', element: <SuccessPage />},
     { path: '/list', element: <RestaurantList /> },
     { path: '/login', element: <Login /> },
     { path: 'signup', element: <Signup />}

@@ -1,42 +1,18 @@
 import React from 'react';
-import { FaBook, FaCamera, FaSave } from 'react-icons/fa';
-import { FaSearch, FaYelp } from 'react-icons/fa'; 
+import { FaBook, FaCamera } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './Restaurants.css';
 import './RestaurantList.css'; 
-import  RecommendedReviews from './ReviewPage';
 import './DetailPage.css';
 import './ReviewPage.css';
+import RecommendedReviews from './ReviewPage';
+import SearchBar from './Restaurant';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
-import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { FaArrowUpFromBracket, FaArrowUpRightFromSquare, FaBookBookmark } from 'react-icons/fa6';
-
-
-const SearchBar = () => (
-    <header className="header">
-        <div className="logo">
-            <FaYelp size="30" style={{ color: 'white' }} /> YYYYYelppppppp
-        </div>
-        <div className="searchContainer">
-            <input type="text" placeholder="Restaurants" className="searchInput" />
-            <input type="text" placeholder="Brookhaven, NY 11719" className="locationInput" />
-            <button className="searchButton">
-                <FaSearch />
-            </button>
-        </div>
-        <div className="navLinks">
-            <a href="#" class="navLink">Yelp for Business</a>
-            <a href="#" class="navLink">Write a Review</a>
-            <a href="#" class="navLink button">Log In</a>
-            <a href="#" class="navLink button">Sign Up</a>
-        </div>
-    </header>
-    );
-
+import { FaArrowUpFromBracket, FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 const images = [
     { src: 'https://s3-media0.fl.yelpcdn.com/bphoto/Hd09DnZQ3KQwYYZEHGEF_Q/348s.jpg', alt: 'Image 1' },
@@ -65,26 +41,30 @@ const PhotoGallery = () => {
     );
 };
 
-const Buttons = () => (
-    <div className="interactive-buttons">
-        <button className="button">
-            <FontAwesomeIcon icon={faStar} />
-            <span style={{ marginLeft: '8px' }}>Write a review</span>
-        </button>
-        <button className="button-add-photo">
-            <FontAwesomeIcon icon={faCamera} />
-            <span style={{ marginLeft: '8px' }}>Add photo</span>
-        </button>
-        <button className="button-share">
-            <FaArrowUpFromBracket />
-            <span style={{ marginLeft: '8px' }}>Share</span>
-        </button>
-        <button className="button-save">
-            <FontAwesomeIcon icon={faBookmark} />
-            <span style={{ marginLeft: '8px' }}>Save</span>
-        </button>
+
+const Buttons = () => {
+    return (
+        <div className="interactive-buttons">
+            <Link to="/detail/write-review" className="write-review-link">
+                <FontAwesomeIcon icon={faStar} />
+                <span style={{ marginLeft: '8px' }}>Write a review</span>
+            </Link>
+            <button className="button-add-photo">
+                <FontAwesomeIcon icon={faCamera} />
+                <span style={{ marginLeft: '8px' }}>Add photo</span>
+            </button>
+            <button className="button-share">
+                <FaArrowUpFromBracket />
+                <span style={{ marginLeft: '8px' }}>Share</span>
+            </button>
+            <button className="button-save">
+                <FontAwesomeIcon icon={faBookmark} />
+                <span style={{ marginLeft: '8px' }}>Save</span>
+            </button>
         </div>
-)
+    );
+};
+
 
 const ContactInfo = () => (
     <div className="contact-info">
@@ -154,7 +134,6 @@ const LocationAndHours = () => (
             <FontAwesomeIcon icon="fa-solid fa-pencil" />
             <FontAwesomeIcon icon={faPencilAlt} />
         </button>
-
     </div>
 );
 

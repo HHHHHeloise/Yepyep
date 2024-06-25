@@ -37,6 +37,7 @@
     margin-bottom: 32px;
 }
 
+
 /* Contact Container */
 .contact-info {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -215,8 +216,25 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-        font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.write-review-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #d32323;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.write-review-link:hover {
+    background-color: #b11212;
+}
+
 
 .button-add-photo,
 .button-share,
@@ -235,7 +253,6 @@
 
 .button:hover {
     opacity: 0.8;
-    /* Slight visual feedback on hover */
 }
 
 .menu-button {
@@ -317,6 +334,7 @@ address.p {
     margin:0;
     padding:0;
 }
+
 .get-directions-button {
     display: flex;
     align-items: center;
@@ -380,85 +398,3 @@ address.p {
 .suggest-edit-button::before {
     content: url('https: //maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=');
 }
-
-/* .location-hours-container {
-    padding-top: 32px;
-    border-top: 1px solid #e0e0e0;
-    position: relative;
-}
-
-.suggest-edit-button {
-    margin-top: 32px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    align-items: center;
-    font-weight: 600;
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(200, 201, 202, 1);
-    border-radius: 4px;
-    height: 44px;
-}
-
-.suggest-edit-button::before {
-    content: url('https: //maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.802938%2C-72.868491&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.802938%2C-72.868491&signature=XNQ01HCT3t3HQ6cARzDhXl2x7mM=');
-    margin-right: 5px;
-}
-
-.map-info {
-    display: flex;
-    justify-content: space-between;
-}
-
-.map-placeholder {
-    width: 50%;
-    height: auto;
-    text-align: center;
-    line-height: 200px;
-    position: relative;
-}
-
-.map-placeholder img {
-    width: 100%;
-    height: auto;
-}
-
-.address-direction {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.address-direction p {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
-
-.direction-button {
-    background-color: #0073bb;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-.hours {
-    width: 45%;
-}
-
-.hours ul {
-    list-style: none;
-    padding: 0;
-}
-
-.hours li {
-    padding: 5px 0;
-}
-
-.closed {
-    color: red;
-    font-weight: bold;
-} */
