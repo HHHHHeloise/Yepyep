@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaYelp, FaSearch } from 'react-icons/fa';  // Assuming you are using react-icons
+import { FaYelp, FaSearch } from 'react-icons/fa';  
 
 const SearchBar = ({ onSearch }) => {
     const [name, setName] = useState('');

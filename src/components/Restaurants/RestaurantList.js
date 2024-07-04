@@ -49,18 +49,15 @@ const Filters = () => {
 const RestaurantEntry = ({ id, imageUrls, name, rating, cuisine, price, isOpen, features, description, reviews }) => {
   const navigate = useNavigate();
 
-  // Parse the JSON string of image URLs and extract the first image
-  const images = JSON.parse(imageUrls || '[]'); // Default to empty array if null
-  const firstImageUrl = images.length > 0 ? images[0] : 'default-image.jpg'; // Provide a default image if none are available
-
+  
+  const images = JSON.parse(imageUrls || '[]'); 
+  const firstImageUrl = images.length > 0 ? images[0] : 'default-image.jpg'; 
   const getStarColor = rating => {
     if (rating >= 4) return "red";
     if (rating >= 3) return "orange";
     return "yellow";
   };
   const cuisines = cuisine ? cuisine.split(',').map(c => c.trim()) : [];
-
-  // const cuisines = cuisine.split(',').map(c => c.trim());
 
     return (
         <div className="restaurantEntry" onClick={() => navigate(`/detail/${id}`)}>

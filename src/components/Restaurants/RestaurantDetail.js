@@ -61,29 +61,6 @@ const Buttons = ({ restaurantId }) => {
     );
 };
 
-// const Buttons = () => {
-//     return (
-//         <div className="interactive-buttons">
-//             <Link to="/detail/write-review" className="write-review-link">
-//                 <FontAwesomeIcon icon={faStar} />
-//                 <span style={{ marginLeft: '8px' }}>Write a review</span>
-//             </Link>
-//             <button className="button-add-photo">
-//                 <FontAwesomeIcon icon={faCamera} />
-//                 <span style={{ marginLeft: '8px' }}>Add photo</span>
-//             </button>
-//             <button className="button-share">
-//                 <FaArrowUpFromBracket />
-//                 <span style={{ marginLeft: '8px' }}>Share</span>
-//             </button>
-//             <button className="button-save">
-//                 <FontAwesomeIcon icon={faBookmark} />
-//                 <span style={{ marginLeft: '8px' }}>Save</span>
-//             </button>
-//         </div>
-//     );
-// };
-
 const ContactInfo = ({email, phone, location}) => (
     <div className="contact-info">
         <div className="website-link">
@@ -108,22 +85,18 @@ const ContactInfo = ({email, phone, location}) => (
 );
 
 const Menu = ({ website }) => {
-    // Assuming fullMenuUrl might be something different; if not, adjust as needed
     const handleFullMenuClick = (url) => {
-        // This could handle a different action, like opening a modal or navigating internally
-        window.location.href = url; // or another appropriate action
+        window.location.href = url; 
     };
 
     return (
         <div className="menu-container">
             <h3>Menu</h3>
             <div>
-                {/* Use <a> for external links for semantic HTML and accessibility */}
                 <button className='menu-button' onClick={() => handleFullMenuClick(website)}>
                     <FaArrowUpRightFromSquare />
                     <span style={{ marginLeft: '8px' }}>Website menu</span>
                 </button>
-                {/* Handling internal or special link with a button */}
                 <button className='menu-button' onClick={() => handleFullMenuClick(website)}>
                     <FaBook />
                     <span style={{ marginLeft: '8px' }}>Full menu</span>
