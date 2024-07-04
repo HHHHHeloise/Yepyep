@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import Login from './components/Auth/Login';
+import { AuthProvider } from './components/Auth/AuthContext';
 import RestaurantList from './components/Restaurants/RestaurantList';
 import Signup from './components/Auth/Signup';
 import HomePage from './components/Restaurants/Restaurant';
@@ -12,15 +13,19 @@ export default function App() {
   let element = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/home', element: <HomePage /> },
-    { path: '/detail', element: <RestaurantDetail /> },
-    { path: '/detail/write-review', element: <WriteReviewPage /> },
-    { path: '/detail/write-review/success', element: <SuccessPage />},
+    { path: '/detail/:restaurantId', element: <RestaurantDetail /> },
+    { path: '/detail/:restaurantId/write-review', element: <WriteReviewPage /> },
+    { path: '/detail/:restaurantId/write-review/success', element: <SuccessPage />},
     { path: '/list', element: <RestaurantList /> },
     { path: '/login', element: <Login /> },
     { path: 'signup', element: <Signup />}
   ]);
 
-  return element;
+  return (
+    <AuthProvider>
+      {element}
+    </AuthProvider>
+  );
 }
 
 const Search = () => {

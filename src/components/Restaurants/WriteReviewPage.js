@@ -1,85 +1,87 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { FaYelp } from 'react-icons/fa';
 import StarRatingInput from './StarRatingInput'; 
 import './WriteReviewPage.css';
+import { useAuth } from '../Auth/AuthContext';
 
 function WriteReviewPage() {
-    const [review, setReview] = useState("");  
-    const [submitting, setSubmitting] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
-    const [rating, setRating] = useState(0);
-    const [selectedTags, setSelectedTags] = useState([]);
+    const { token } = useAuth();
+    const { restaurantId } = useParams();
+    const [body, setBody] = useState("");
+    const [score, setScore] = useState(0);
+    const [restaurantName, setRestaurantName] = useState("");
     const navigate = useNavigate();
 
+    useEffect(() => {
+        fetch(`http://localhost:8080/api/v1/restaurants/${restaurantId}`)
+            .then(response => response.json())
+            .then(data => {
+                setRestaurantName(data.name);
+            })
+            .catch(error => console.error('Failed to load restaurant details', error));
+    }, [restaurantId]);
+
     const handleInputChange = (event) => {
-        setReview(event.target.value);
+        setBody(event.target.value);
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault(); 
-        if (review.trim() === "" || rating === 0) {
-            alert("Please enter a review and select a rating before submitting.");
+        event.preventDefault();
+        if (body.trim() === "" || score === 0) {
+            alert("Please enter a review and select a score before submitting.");
             return;
         }
 
-        setSubmitting(true);
+        if (!token) {
+            alert("You are not logged in.");
+            return;
+        }
 
-        setTimeout(() => {
-            console.log('Review Submitted:', review); 
-            setSubmitting(false);
-            setSubmitted(true);
-            setReview(""); 
-            setRating(0);
-            setSelectedTags([]);
-            navigate('/detail/write-review/success'); // Redirect to success page
-        }, 1000); 
-    };
+        const reviewData = {
+            restaurantId,
+            body,
+            score,
+        };
 
-    const toggleTag = (tag) => {
-        setSelectedTags((prevTags) => 
-            prevTags.includes(tag) ? prevTags.filter(t => t !== tag) : [...prevTags, tag]
-        );
+        fetch('http://localhost:8080/api/v1/reviews/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(reviewData)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to submit review');
+            }
+        })
+        .then(data => {
+            console.log('Review submitted successfully:', data);
+            navigate('/detail/write-review/success');
+        })
+        .catch(error => {
+            console.error('Error submitting review:', error);
+            alert('Error submitting review. Please try again.');
+        });
     };
 
     return (
         <div>
             <header className="header">
-                <div className="logo">
-                    <FaYelp size="30" style={{ color: 'white' }} /> Yelp
-                </div>
-                <div>
-                    <button className="navLink">Log In</button>
-                    <button className="navLink-button">Sign Up</button>
-                </div>
+                <div className="logo"><FaYelp size="30" style={{ color: 'white' }} /></div>
             </header>
             <div className="write-review-page">
-                <h2>Popeyes Louisiana Kitchen</h2>
+                <h2>{restaurantName}</h2>
                 <form onSubmit={handleSubmit} className="review-form">
                     <div className="review-box">
-                        <StarRatingInput setRating={setRating} />
-                        <div className='reminder'>A few things to consider in your review </div>
-                        <div className="tags">
-                            {['Food', 'Service', 'Ambiance'].map(tag => (
-                                <span 
-                                    key={tag} 
-                                    className={`tag ${selectedTags.includes(tag) ? 'active' : ''}`}
-                                    onClick={() => toggleTag(tag)}
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                        <textarea 
-                            value={review}
-                            onChange={handleInputChange}
-                            placeholder="Share your experience..."
-                            className="review-textarea"
-                        ></textarea>
+                        <StarRatingInput setRating={setScore} />
+                        <textarea value={body} onChange={handleInputChange} placeholder="Share your experience..." className="review-textarea"></textarea>
                     </div>
-                    <button type="submit" className="post-review-button" disabled={submitting}>
-                        {submitting ? 'Submitting...' : 'Post Review'}
-                    </button>
+                    <button type="submit" className="post-review-button">Post Review</button>
                 </form>
             </div>
         </div>

@@ -51,7 +51,7 @@ class Signup extends React.Component {
   render() {
     return <div>
       <div style={{display: 'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', marginTop: '100px'}}>
-        <h style={{display: 'flex', flexDirection:'column', alignItems:'center', marginBottom: '20px', fontSize: '20px', color:'#d32323'}}>Sign Up For Yelp</h>
+        <h style={{display: 'flex', flexDirection:'column', alignItems:'center', marginBottom: '20px', fontSize: '20px', color:'#d32323'}}>Sign Up For YYYYYelppppppp</h>
           <form>
               <div style={{marginBottom: '15px'}}>
                   <div for="fname" style={{marginRight: '10px', marginBottom: '6px', fontSize: '14px'}} data-component-bound="true"></div>

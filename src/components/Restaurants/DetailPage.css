@@ -65,6 +65,18 @@
     border-color: rgba(235, 235, 235, 1);
 }
 
+.email {
+    border-top: 1px solid rgba(235, 235, 235, 1);
+    border-color: rgba(235, 235, 235, 1);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    color: rgba(45, 46, 47, 1);
+    text-align: left;
+}
+
 .phone-number {
     border-top: 1px solid rgba(235, 235, 235, 1);
     border-color: rgba(235, 235, 235, 1);
@@ -380,6 +392,15 @@ address.p {
 .hours-row span:last-child {
     font-weight: bold;
     margin-left: 16px;
+}
+
+.hours-and-status .status {
+    padding-left: 10px;
+}
+
+.hours-and-status {
+    display: flex;
+    align-items: center;
 }
 
 .suggest-edit-button {

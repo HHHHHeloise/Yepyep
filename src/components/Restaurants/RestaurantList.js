@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaSearch, FaYelp } from 'react-icons/fa'; 
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RestaurantList.css';
 import './Restaurants.css'; 
 import SearchBar from './Restaurant';
@@ -46,17 +46,25 @@ const Filters = () => {
   );
 };
 
-const RestaurantEntry = ({ imageSrc, name, rating, cuisine, price, isOpen, features, description, reviews }) => {
+const RestaurantEntry = ({ id, imageUrls, name, rating, cuisine, price, isOpen, features, description, reviews }) => {
+  const navigate = useNavigate();
+
+  // Parse the JSON string of image URLs and extract the first image
+  const images = JSON.parse(imageUrls || '[]'); // Default to empty array if null
+  const firstImageUrl = images.length > 0 ? images[0] : 'default-image.jpg'; // Provide a default image if none are available
+
   const getStarColor = rating => {
     if (rating >= 4) return "red";
     if (rating >= 3) return "orange";
     return "yellow";
   };
-  const cuisines = cuisine.split(',').map(c => c.trim());
+  const cuisines = cuisine ? cuisine.split(',').map(c => c.trim()) : [];
+
+  // const cuisines = cuisine.split(',').map(c => c.trim());
 
     return (
-        <div className="restaurantEntry">
-            <img src={imageSrc} alt={name} className="restaurantImage" />
+        <div className="restaurantEntry" onClick={() => navigate(`/detail/${id}`)}>
+            <img src={firstImageUrl} alt={name} className="restaurantImage" />
             <div className="restaurantDetails">
                 <h2 className="restaurantName">{name}</h2>
                 <div className="restaurantMeta">
@@ -85,7 +93,7 @@ const RestaurantEntry = ({ imageSrc, name, rating, cuisine, price, isOpen, featu
     );
 };
 
-const RestaurantListing = () => {
+const RestaurantShowing = () => {
   const restaurantsData = [
     // Example entry
     {
@@ -151,5 +159,56 @@ const RestaurantListing = () => {
     </div>
   );
 };
+
+const RestaurantListing = () => {
+    const [restaurants, setRestaurants] = useState([]);
+    const navigate = useNavigate(); 
+
+    useEffect(() => {
+        const endpoint = 'http://localhost:8080/api/v1/restaurants/searchByLocation';
+
+        fetch(endpoint, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({ location: 'Stony Brook' }) 
+        })
+        .then(response => response.json())
+        .then(data => {
+            setRestaurants(data); 
+            // console.log(data);
+        })
+        .catch(error => console.error('Error:', error));
+    }, []); 
+
+    const handleSearchResults = (results) => {
+        setRestaurants(results);
+        console.log(results);
+        // if (results.length > 0) {
+        //     navigate(`/detail/${results[0].id}`);
+        // }
+    };
+
+    return (
+        <div className="wrapper">
+            <SearchBar onSearch={handleSearchResults} />
+            <div className="content">
+                <Filters />
+                <div className="restaurantsList">
+                  {restaurants.length > 0 ? (
+                    restaurants.map((restaurant, index) => (
+                      <RestaurantEntry key={index} {...restaurant} onClick={() => navigate(`/detail/${restaurant.id}`)} />
+                    ))
+                  ) : (
+                    <div>No restaurants found</div>
+                  )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
 
 export default RestaurantListing;
