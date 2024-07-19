@@ -1,66 +1,47 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
+    width: 100%;
+    max-width: 320px;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
 }
 
-.signin-header {
+.login-header {
     margin-bottom: 20px;
     font-size: 20px;
 }
 
-.signin-box {
-    border: solid;
-    width: 250px;
-    padding: 20px;
-    border-radius: 10px;
-    border-width: thin;
-    background-color: #f6f8fa;
-    border-color: hsla(210, 18%, 87%, 1);
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-label {
-    margin-right: 10px;
-    margin-bottom: 6px;
-    font-size: 14px;
-}
-
-.input-field {
-    border-radius: 5px;
-    border-width: thin;
-    border-color: #d0d7de;
-    width: -webkit-fill-available;
-    height: 24px;
-}
-
-.password-group {
+.login-form {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 6px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.password-label {
-    font-size: 14px;
+.login-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.forgot-password {
-    font-size: 12px;
-    text-decoration: none;
-    text-align: center;
-}
-
-.signin-button {
-    margin-top: 15px;
-    width: 100%;
-    background-color: #1f883d;
+.login-button {
+    background-color: #d32323;
     color: white;
-    border-color: rgba(31, 35, 40, 0.15);
-    height: 30px;
-    border-radius: 6px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.login-links {
+    margin-top: 20px;
+}
+
+.forgot-password,
+.signup-link {
+    display: block;
+    color: #0073bb;
+    margin-top: 8px;
+    text-decoration: none;
 }

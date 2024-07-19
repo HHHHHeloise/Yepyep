@@ -90,91 +90,36 @@ const RestaurantEntry = ({ id, imageUrls, name, rating, cuisine, price, isOpen, 
     );
 };
 
-const RestaurantShowing = () => {
-  const restaurantsData = [
-    // Example entry
-    {
-        id: 1,
-        name: 'Popeyes Louisiana Kitchen',
-        imageSrc: 'https://s3-media0.fl.yelpcdn.com/bphoto/Hd09DnZQ3KQwYYZEHGEF_Q/348s.jpg', 
-        rating: 3.3,
-        reviews: 36,
-        cuisine: 'Fast Food, Chicken Wings',
-        price: '$',
-        address: '17 McGraw St',
-        isOpen: true,
-        features: ['Delivery', 'Takeout'],
-        description: 'Ok so I absolutely loves Popeyes chicken, but what\'s going on with their biscuits lately.'
-    },
-    {
-        id: 2,
-        name: 'PORTERS on the lane',
-        imageSrc: 'https://s3-media0.fl.yelpcdn.com/bphoto/Z_OvtL0x_GAgKfafm0p91g/348s.jpg',
-        rating: 4.0,
-        reviews: 304,
-        cuisine: 'New American',
-        price: '$$',
-        features: ['Outdoor seating', 'Delivery', 'Takeout'],
-        description: 'Fabulous service and attentive staff. Only gets better with each visit.'
-    },
-    {
-        id: 3,
-        name: "Avino's Italian Table",
-        imageSrc: 'https://s3-media0.fl.yelpcdn.com/bphoto/xLo-9yl3xHK6XFZfna-MjQ/348s.jpg',
-        rating: 4.0,
-        reviews: 154,
-        cuisine: 'Italian',
-        price: '$$',
-        features: ['Outdoor seating', 'Delivery'],
-        description: 'Always delicious place for brunch! The pork Milanese is outstanding!'
-    },
-    {
-        id: 4,
-        name: "Varney's Restaurant",
-        imageSrc: 'https://s3-media0.fl.yelpcdn.com/bphoto/LNvIEYjB41pERVWuxHnnAQ/348s.jpg',
-        rating: 4.0,
-        reviews: 152,
-        cuisine: 'Seafood',
-        price: '$$',
-        features: ['Takeout'],
-        description: 'Great seafood and burgers. A local favorite.'
-    }
-  ];
-
-
-  return (
-    <div className="wrapper">
-      <SearchBar />
-      <div className="content">
-        <Filters />
-        <div className="restaurantsList">
-          {restaurantsData.map((restaurant, index) => (
-            <RestaurantEntry key={index} {...restaurant} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const RestaurantListing = () => {
     const [restaurants, setRestaurants] = useState([]);
     const navigate = useNavigate(); 
 
-    useEffect(() => {
-        const endpoint = 'http://localhost:8080/api/v1/restaurants/searchByLocation';
+  useEffect(() => {
+    const role = localStorage.getItem('role');
+    console.log(role);
+    const userId = localStorage.getItem('userId');
+    console.log(userId);
+
+    let endpoint = 'http://localhost:8080/api/v1/restaurants/searchByLocation';
+    let body = JSON.stringify({ location: 'Stony Brook' });
+
+    if (role === 'owner') {
+      endpoint = 'http://localhost:8080/api/v1/restaurants/searchByOwner';
+      body = JSON.stringify({ createdBy: userId });
+    }
+        // const endpoint = 'http://localhost:8080/api/v1/restaurants/searchByLocation';
 
         fetch(endpoint, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify({ location: 'Stony Brook' }) 
+          },
+          body: body 
         })
         .then(response => response.json())
         .then(data => {
             setRestaurants(data); 
-            // console.log(data);
+            console.log(data);
         })
         .catch(error => console.error('Error:', error));
     }, []); 
@@ -205,7 +150,5 @@ const RestaurantListing = () => {
         </div>
     );
 };
-
-
 
 export default RestaurantListing;

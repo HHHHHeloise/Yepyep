@@ -1,23 +1,22 @@
 .submit-success-page {
     text-align: center;
+    padding: 20px;
+    margin: auto;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
     margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .submit-success-page h2 {
-    font-size: 30px;
-    color: #d32323;
+    font-size: 26px;
+    color: #000000;
 }
 
 .submit-success-page p {
-    font-size: 18px;
-}
-
-.submit-success-page a {
-    color: #0073bb;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.submit-success-page a:hover {
-    color: #0056a3;
+    font-size: 24px;
+    color: #000000;
 }

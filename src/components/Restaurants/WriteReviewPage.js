@@ -6,8 +6,10 @@ import './WriteReviewPage.css';
 import { useAuth } from '../Auth/AuthContext';
 
 function WriteReviewPage() {
-    const token = useAuth();
-    console.log("Token in WriteReviewPage:", token);
+    const authContext = useAuth();
+    const token = authContext.token;
+    console.log("Auth Context:", authContext); 
+    console.log("Token:", authContext.token); 
     const { restaurantId } = useParams();
     const [body, setBody] = useState("");
     const [score, setScore] = useState(0);
@@ -28,94 +30,52 @@ function WriteReviewPage() {
     };
 
     const handleSubmit = (event) => {
-    event.preventDefault();
-    if (body.trim() === "" || score === 0) {
-        alert("Please enter a review and select a score before submitting.");
-        return;
-    }
+        event.preventDefault();
+        if (body.trim() === "" || score === 0) {
+            alert("Please enter a review and select a score before submitting.");
+            return;
+        }
 
-    if (!token) {
-        alert("You are not logged in.");
-        return;
-    }
+        if (!token) {
+            alert("You are not logged in.");
+            return;
+        }
 
-    console.log('Attempting to submit review with token:', token);
+        console.log('Attempting to submit review with token:', token);
 
-    const reviewData = {
-        restaurantId,
-        body,
-        score,
+        const parsedRestaurantId = Number(restaurantId);
+
+        const reviewData = {
+            restaurantId: parsedRestaurantId, 
+            userId: authContext.userId, 
+            body,
+            score,
+        };
+
+        fetch('http://localhost:8080/api/v1/reviews/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(reviewData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to submit review');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Review submitted successfully:', data);
+            navigate('/detail/write-review/success'); 
+        })
+        .catch(error => {
+            console.error('Error submitting review:', error);
+            alert('Error submitting review. Please try again.');
+        });
     };
 
-    fetch('http://localhost:8080/api/v1/reviews/add', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(reviewData),
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Failed to submit review');
-        }
-    })
-    .then(data => {
-        console.log('Review submitted successfully:', data);
-        navigate('/detail/write-review/success');
-    })
-    .catch(error => {
-        console.error('Error submitting review:', error);
-        alert('Error submitting review. Please try again.');
-    });
-};
-
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     if (body.trim() === "" || score === 0) {
-    //         alert("Please enter a review and select a score before submitting.");
-    //         return;
-    //     }
-
-    //     if (!token) {
-    //         alert("You are not logged in.");
-    //         return;
-    //     }
-
-    //     const reviewData = {
-    //         restaurantId,
-    //         body,
-    //         score,
-    //     };
-
-    //     fetch('http://localhost:8080/api/v1/reviews/add', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //         body: JSON.stringify(reviewData),
-            
-    //     })
-    //     .then(response => {
-    //         if (response.ok) {
-    //             return response.json();
-    //         } else {
-    //             throw new Error('Failed to submit review');
-    //         }
-    //     })
-    //     .then(data => {
-    //         console.log('Review submitted successfully:', data);
-    //         navigate('/detail/write-review/success');
-    //     })
-    //     .catch(error => {
-    //         console.error('Error submitting review:', error);
-    //         alert('Error submitting review. Please try again.');
-    //     });
-    // };
 
     return (
         <div>

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { FaYelp, FaSearch } from 'react-icons/fa';  
+import { Link } from 'react-router-dom';
+import './Restaurants.css';
 
 const SearchBar = ({ onSearch }) => {
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
+    const isAuthenticated = localStorage.getItem('token') ? true : false; 
+    const role = localStorage.getItem('role');
+    const username = localStorage.getItem('username');
 
     const handleSearch = () => {
         const searchUrl = `http://localhost:8080/api/v1/restaurants/`;
@@ -46,6 +51,15 @@ const SearchBar = ({ onSearch }) => {
         }
     };
 
+    const getRandomColor = () => {
+        const colors = ['#e57373', '#64b5f6', '#81c784', '#ffb74d', '#ba68c8'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    };
+
+    const userIconStyle = {
+        backgroundColor: getRandomColor()
+    };
+
     return (
         <header className="header">
             <div className="logo">
@@ -73,11 +87,24 @@ const SearchBar = ({ onSearch }) => {
                     <FaSearch />
                 </button>
             </div>
-            <div className="navLinks">
-                <a href="#" className="navLink">Yelp for Business</a>
-                <a href="#" className="navLink">Write a Review</a>
-                <a href="#" className="navLink-button">Log In</a>
-                <a href="#" className="navLink-button">Sign Up</a>
+                <div className="navLinks">
+                    {isAuthenticated ? (
+                    <div className="user-section" >
+                            {role === 'owner' && (
+                                <Link to="/start-business" className="navLink-button">Start Your Business</Link>
+                            )}
+                            <div className="userIcon" style={userIconStyle}>
+                                {username ? username.charAt(0).toUpperCase() : 'U'}
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            <a href="#" className="navLink">Yelp for Business</a>
+                            <a href="#" className="navLink">Write a Review</a>
+                            <Link to="/login" className="navLink-button">Log In</Link>
+                            <Link to="/signup" className="navLink-button">Sign Up</Link>
+                        </>
+                    )}
             </div>
         </header>
     );

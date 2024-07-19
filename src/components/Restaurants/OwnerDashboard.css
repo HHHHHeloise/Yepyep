@@ -1,0 +1,57 @@
+.wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.owner-dashboard {
+    padding: 20px;
+    max-width: 920px;
+}
+
+.dashboard-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.business-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.business-form input,
+.business-form textarea,
+.business-form .submit-button {
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.inline-fields {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.inline-fields .field {
+    flex: 1;
+}
+
+.submit-button {
+    background-color: #d32323;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+}
+
+textarea {
+    height: 100px;
+}

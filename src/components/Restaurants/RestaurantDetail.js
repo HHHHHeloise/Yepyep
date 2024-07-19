@@ -61,7 +61,7 @@ const Buttons = ({ restaurantId }) => {
     );
 };
 
-const ContactInfo = ({email, phone, location}) => (
+const ContactInfo = ({email, phone, location, website}) => (
     <div className="contact-info">
         <div className="website-link">
             popeyes.com
@@ -84,7 +84,7 @@ const ContactInfo = ({email, phone, location}) => (
     </div>
 );
 
-const Menu = ({ website }) => {
+const Menu = ({ menu }) => {
     const handleFullMenuClick = (url) => {
         window.location.href = url; 
     };
@@ -93,11 +93,11 @@ const Menu = ({ website }) => {
         <div className="menu-container">
             <h3>Menu</h3>
             <div>
-                <button className='menu-button' onClick={() => handleFullMenuClick(website)}>
+                <button className='menu-button' onClick={() => handleFullMenuClick(menu)}>
                     <FaArrowUpRightFromSquare />
                     <span style={{ marginLeft: '8px' }}>Website menu</span>
                 </button>
-                <button className='menu-button' onClick={() => handleFullMenuClick(website)}>
+                <button className='menu-button' onClick={() => handleFullMenuClick(menu)}>
                     <FaBook />
                     <span style={{ marginLeft: '8px' }}>Full menu</span>
                 </button>
@@ -226,6 +226,7 @@ const RestaurantDetail = () => {
                         email={restaurantDetails.email}
                         phone={restaurantDetails.phone}
                         location={restaurantDetails.location}
+                        website={restaurantDetails.website}
                     />
                 </div>
             </div>

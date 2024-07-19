@@ -1,3 +1,12 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 1000px;
+}
+.content {
+    display: flex;
+    width: 100%;
+}
 /* Filter Container Styles */
 .filterContainer {
     font-family: 'Roboto', sans-serif;
@@ -6,8 +15,18 @@
     padding: 12px;
     width: 350px;
     border-radius: 4px;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    background-color: #FFFFFF;
+    position: sticky;
+    height: fit-content;
 }
 
+.restaurantsList {
+    flex-grow: 1;
+    margin-left: 20px;
+}
 .filterContainer h2 {
     font-family: 'Arial', sans-serif;
     font-size: 20px;
@@ -248,20 +267,6 @@
     flex: 2;
     height: 400px;
     background-color: #e0e0e0;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    display: flex;
 }
 
 /* RestaurantList.css */
