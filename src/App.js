@@ -8,6 +8,7 @@ import HomePage from './components/Restaurants/Restaurant';
 import RestaurantDetail from './components/Restaurants/RestaurantDetail';
 import WriteReviewPage from './components/Restaurants/WriteReviewPage'; 
 import SuccessPage from './components/Restaurants/SuccessPage';
+import OwnerDashboard from './components/Restaurants/OwnerDashboard';
 
 export default function App() {
   let element = useRoutes([
@@ -15,8 +16,9 @@ export default function App() {
     { path: '/home', element: <HomePage /> },
     { path: '/detail/:restaurantId', element: <RestaurantDetail /> },
     { path: '/detail/:restaurantId/write-review', element: <WriteReviewPage /> },
-    { path: '/detail/:restaurantId/write-review/success', element: <SuccessPage />},
+    { path: '/detail/write-review/success', element: <SuccessPage />},
     { path: '/list', element: <RestaurantList /> },
+    { path: '/start-business', element: <OwnerDashboard /> },
     { path: '/login', element: <Login /> },
     { path: 'signup', element: <Signup />}
   ]);

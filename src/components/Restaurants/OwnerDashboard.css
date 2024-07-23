@@ -1,4 +1,4 @@
-.wrapper {
+.dashboard-wrapper {
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
@@ -9,7 +9,6 @@
 
 .owner-dashboard {
     padding: 20px;
-    max-width: 920px;
 }
 
 .dashboard-heading {
@@ -24,14 +23,20 @@
     width: 100%;
 }
 
-.business-form input,
+.business-form input {
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .business-form textarea,
 .business-form .submit-button {
     padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .inline-fields {

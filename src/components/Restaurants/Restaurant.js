@@ -60,6 +60,25 @@ const SearchBar = ({ onSearch }) => {
         backgroundColor: getRandomColor()
     };
 
+    const DropdownMenu = ({ role }) => {
+        return (
+            <div className="dropdown-menu">
+                {role === 'owner' ? (
+                    <>
+                        <a href="/manage-restaurant" className="dropdown-item">Manage your restaurant</a>
+                        <a href="/account-settings" className="dropdown-item">Account settings</a>
+                    </>
+                ) : (
+                    <>
+                        <a href="/manage-favorites" className="dropdown-item">Manage your favorites</a>
+                        <a href="/account-settings" className="dropdown-item">Account settings</a>
+                    </>
+                )}
+            </div>
+        );
+    };
+
+
     return (
         <header className="header">
             <div className="logo">
@@ -89,12 +108,13 @@ const SearchBar = ({ onSearch }) => {
             </div>
                 <div className="navLinks">
                     {isAuthenticated ? (
-                    <div className="user-section" >
+                    <div className="user-section">
                             {role === 'owner' && (
                                 <Link to="/start-business" className="navLink-button">Start Your Business</Link>
                             )}
                             <div className="userIcon" style={userIconStyle}>
                                 {username ? username.charAt(0).toUpperCase() : 'U'}
+                                <DropdownMenu role={role} />
                             </div>
                         </div>
                     ) : (

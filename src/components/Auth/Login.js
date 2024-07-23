@@ -16,15 +16,17 @@ function Login() {
         const data = { email, password };
 
         axios.post(url, data).then(response => {
-            const token = response.data;  
-            console.log("Extracted token:", token);  
-            if (token) {
-                localStorage.setItem('username', token.username);
-                localStorage.setItem('role', token.role);
-                console.log(token.role);
-                localStorage.setItem('userId', token.userId);
-                console.log(token.userId);
-                saveToken(token); 
+            const data = response.data;  
+            console.log("Extracted token:", data);  
+            if (data) {
+                localStorage.setItem('username', data.username);
+                localStorage.setItem('role', data.role);
+                console.log(data.role);
+                localStorage.setItem('userId', data.userId);
+                localStorage.setItem('token', data.token);
+                console.log(data.userId);
+                saveToken(data.token); 
+                console.log(data.token)
                 navigate('/list'); 
             } else {
                 console.log("Authentication failed: No token received.");

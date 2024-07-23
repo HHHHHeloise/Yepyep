@@ -12,7 +12,7 @@ function OwnerDashboard() {
         cuisine: '',
         zipcode: '',
         hours: '',
-        image_urls: '',
+        imageUrls: '',
         menu: '',
         website: ''
     });
@@ -44,7 +44,7 @@ function OwnerDashboard() {
     };
 
     return (
-        <div className="wrapper">
+        <div className="dashboard-wrapper">
             <header className="header">
                 <div className="logo">
                     <FaYelp size="30" style={{ color: 'white' }} />
@@ -67,12 +67,11 @@ function OwnerDashboard() {
                     <input type="text" name="phone" value={restaurant.phone} onChange={handleChange} placeholder="Contact Phone" />
                     <input type="text" name="cuisine" value={restaurant.cuisine} onChange={handleChange} placeholder="Cuisine Type" />
                     <textarea name="hours" value={restaurant.hours} onChange={handleChange} placeholder="Operating Hours (JSON format)" />
-                    <textarea name="image_urls" value={restaurant.image_urls} onChange={handleChange} placeholder="Image URLs (JSON format)" />
+                    <textarea name="imageUrls" value={restaurant.imageUrls} onChange={handleChange} placeholder="Image URLs (JSON format)" />
                     <input type="text" name="menu" value={restaurant.menu} onChange={handleChange} placeholder="Menu URL" />
                     <input type="text" name="website" value={restaurant.website} onChange={handleChange} placeholder="Website URL" />
                     <button type="submit" className="submit-button">Submit</button>
                 </form>
-                    <button type="submit" className="submit-button">Submit</button>
             </div>
     </div>
     );

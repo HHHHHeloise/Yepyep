@@ -263,6 +263,11 @@
     border: 1px solid #e0e0e0;
 }
 
+.button-save.saved {
+    background-color: #d32323;
+    color: white;
+}
+
 .button:hover {
     opacity: 0.8;
 }

@@ -92,6 +92,7 @@ const RestaurantEntry = ({ id, imageUrls, name, rating, cuisine, price, isOpen, 
 
 const RestaurantListing = () => {
     const [restaurants, setRestaurants] = useState([]);
+    
     const navigate = useNavigate(); 
 
   useEffect(() => {
@@ -107,7 +108,6 @@ const RestaurantListing = () => {
       endpoint = 'http://localhost:8080/api/v1/restaurants/searchByOwner';
       body = JSON.stringify({ createdBy: userId });
     }
-        // const endpoint = 'http://localhost:8080/api/v1/restaurants/searchByLocation';
 
         fetch(endpoint, {
             method: 'POST', 

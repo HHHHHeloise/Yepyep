@@ -39,6 +39,38 @@ const PhotoGallery = ({ name, images }) => {
 
 
 const Buttons = ({ restaurantId }) => {
+    const [isSaved, setIsSaved] = useState(false);
+
+    const handleSaveToFavorites = () => {
+        if (isSaved) return;
+
+        const userId = localStorage.getItem('userId');
+        const token = localStorage.getItem('token');
+
+        fetch(`http://localhost:8080/api/v1/favorites/add`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,  
+            },
+            body: JSON.stringify({ userId, restaurantId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                setIsSaved(true); 
+                alert('Added to favorites!');
+            } else {
+                throw new Error(data.message || 'Failed to save');
+            }
+        })
+        .catch(error => {
+            console.error('Error adding to favorites:', error);
+            alert(error.message);
+        });
+    };
+
+
     return (
         <div className="interactive-buttons">
             <Link to={`/detail/${restaurantId}/write-review`} className="write-review-link">
@@ -53,18 +85,23 @@ const Buttons = ({ restaurantId }) => {
                 <FaArrowUpFromBracket />
                 <span style={{ marginLeft: '8px' }}>Share</span>
             </button>
-            <button className="button-save">
+            <button 
+                className="button-save" 
+                onClick={handleSaveToFavorites} 
+                disabled={isSaved}
+            >
                 <FontAwesomeIcon icon={faBookmark} />
-                <span style={{ marginLeft: '8px' }}>Save</span>
+                <span style={{ marginLeft: '8px' }}>{isSaved ? 'Saved' : 'Save'}</span>
             </button>
         </div>
     );
 };
 
+
 const ContactInfo = ({email, phone, location, website}) => (
     <div className="contact-info">
         <div className="website-link">
-            popeyes.com
+            {website}
         </div>
         <div className="email">
             <p>Email:</p> {email}
@@ -80,7 +117,10 @@ const ContactInfo = ({email, phone, location, website}) => (
             <a href="#" className="get-directions-link">Get Directions</a>
             {/* <p>800 W Randolph St, Chicago, IL 60607</p> */}
         </div>
-        <button className="edit-button">Suggest an edit</button>
+        <button className="edit-button">
+            <FontAwesomeIcon icon={faPencilAlt} style={{ marginRight: '8px' }}/>
+            Suggest an edit
+        </button>
     </div>
 );
 
