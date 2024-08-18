@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaYelp } from 'react-icons/fa';  
 import './OwnerDashboard.css';
+import { width } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 function OwnerDashboard() {
     const [restaurant, setRestaurant] = useState({
@@ -66,8 +67,8 @@ function OwnerDashboard() {
                     </div>
                     <input type="text" name="phone" value={restaurant.phone} onChange={handleChange} placeholder="Contact Phone" />
                     <input type="text" name="cuisine" value={restaurant.cuisine} onChange={handleChange} placeholder="Cuisine Type" />
-                    <textarea name="hours" value={restaurant.hours} onChange={handleChange} placeholder="Operating Hours (JSON format)" />
-                    <textarea name="imageUrls" value={restaurant.imageUrls} onChange={handleChange} placeholder="Image URLs (JSON format)" />
+                    <input name="hours" value={restaurant.hours} onChange={handleChange} placeholder="Operating Hours"/>
+                    <input name="imageUrls" value={restaurant.imageUrls} onChange={handleChange} placeholder="Image URLs" />
                     <input type="text" name="menu" value={restaurant.menu} onChange={handleChange} placeholder="Menu URL" />
                     <input type="text" name="website" value={restaurant.website} onChange={handleChange} placeholder="Website URL" />
                     <button type="submit" className="submit-button">Submit</button>

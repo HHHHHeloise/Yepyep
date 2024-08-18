@@ -48,10 +48,8 @@ const Filters = () => {
 
 const RestaurantEntry = ({ id, imageUrls, name, rating, cuisine, price, isOpen, features, description, reviews }) => {
   const navigate = useNavigate();
-
   
-  const images = JSON.parse(imageUrls || '[]'); 
-  const firstImageUrl = images.length > 0 ? images[0] : 'default-image.jpg'; 
+  const firstImageUrl = (imageUrls && imageUrls.length > 0) ? imageUrls[0].url : 'default-image.jpg';
   const getStarColor = rating => {
     if (rating >= 4) return "red";
     if (rating >= 3) return "orange";
@@ -127,9 +125,6 @@ const RestaurantListing = () => {
     const handleSearchResults = (results) => {
         setRestaurants(results);
         console.log(results);
-        // if (results.length > 0) {
-        //     navigate(`/detail/${results[0].id}`);
-        // }
     };
 
     return (

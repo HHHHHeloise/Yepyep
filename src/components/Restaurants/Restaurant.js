@@ -119,8 +119,8 @@ const SearchBar = ({ onSearch }) => {
                         </div>
                     ) : (
                         <>
-                            <a href="#" className="navLink">Yelp for Business</a>
-                            <a href="#" className="navLink">Write a Review</a>
+                            <Link to="/start-business" className="navLink">Yelp for Business</Link>
+                            <Link to="/start-business" className="navLink">Write a Review</Link>
                             <Link to="/login" className="navLink-button">Log In</Link>
                             <Link to="/signup" className="navLink-button">Sign Up</Link>
                         </>

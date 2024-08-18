@@ -23,7 +23,7 @@ function Login() {
                 localStorage.setItem('role', data.role);
                 console.log(data.role);
                 localStorage.setItem('userId', data.userId);
-                localStorage.setItem('token', data.token);
+                // localStorage.setItem('token', data.token);
                 console.log(data.userId);
                 saveToken(data.token); 
                 console.log(data.token)

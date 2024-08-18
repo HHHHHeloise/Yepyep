@@ -84,3 +84,8 @@
     font-size: 24px;
     font-weight: bold;
 }
+
+.review-textarea::placeholder {
+    color: gray;
+    font-style: Sans-serif;
+}

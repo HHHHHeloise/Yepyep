@@ -3,6 +3,7 @@ import moment from 'moment/moment';
 import { FaBook, FaCamera } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../Auth/AuthContext';
 import './Restaurants.css';
 import './RestaurantList.css'; 
 import './DetailPage.css';
@@ -15,28 +16,45 @@ import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FaArrowUpFromBracket, FaArrowUpRightFromSquare } from 'react-icons/fa6';
+import { FaBackward, FaForward } from 'react-icons/fa';
 
-const PhotoGallery = ({ name, images }) => {
+const PhotoGallery = ({ name, restaurantId, averageRating, reviewCount, imageUrls }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const displayCount = 3;
+
+    const goPrev = () => {
+        setCurrentIndex(prevIndex => Math.max(prevIndex - displayCount, 0));
+    };
+
+    const goNext = () => {
+        setCurrentIndex(prevIndex => Math.min(prevIndex + displayCount, imageUrls.length - displayCount));
+    };
+
     return (
         <div className="gallery-container">
+            <button className="nav-button left" onClick={goPrev} disabled={currentIndex === 0}>
+                <FaBackward />
+            </button>
             <div className="images-row">
-                {images && images.map((imageUrl, index) => (
+                {imageUrls.slice(currentIndex, currentIndex + displayCount).map((imageUrl, index) => (
                     <span className="image-container" key={index}>
-                        <img src={imageUrl} alt={`${name} - Image ${index + 1}`} />
+                        <img src={imageUrl.url} alt={`${name} image ${index + 1 + currentIndex}`} />
                     </span>
                 ))}
             </div>
+            <button className="nav-button right" onClick={goNext} disabled={currentIndex + displayCount >= imageUrls.length}>
+                <FaForward />
+            </button>
             <div className="overlay-text">
                 {name}
-                <br />⭐ 3.3 (36 reviews)
+                <br />⭐ {averageRating} ({reviewCount} reviews)
             </div>
             <button className="see-all-button">
-                <FaCamera /> See all {images.length} photos
+                <FaCamera /> See all {imageUrls.length} photos
             </button>
         </div>
     );
 };
-
 
 const Buttons = ({ restaurantId }) => {
     const [isSaved, setIsSaved] = useState(false);
@@ -70,17 +88,16 @@ const Buttons = ({ restaurantId }) => {
         });
     };
 
-
     return (
         <div className="interactive-buttons">
             <Link to={`/detail/${restaurantId}/write-review`} className="write-review-link">
                 <FontAwesomeIcon icon={faStar} />
                 <span style={{ marginLeft: '8px' }}>Write a review</span>
             </Link>
-            <button className="button-add-photo">
+            <Link to={`/detail/${restaurantId}/upload-photo`} className="button-add-photo">
                 <FontAwesomeIcon icon={faCamera} />
                 <span style={{ marginLeft: '8px' }}>Add photo</span>
-            </button>
+            </Link>
             <button className="button-share">
                 <FaArrowUpFromBracket />
                 <span style={{ marginLeft: '8px' }}>Share</span>
@@ -96,7 +113,6 @@ const Buttons = ({ restaurantId }) => {
         </div>
     );
 };
-
 
 const ContactInfo = ({email, phone, location, website}) => (
     <div className="contact-info">
@@ -146,20 +162,27 @@ const Menu = ({ menu }) => {
     );
 };
 
-const LocationAndHours = ({ address, hours }) => {
-    
-    const isCurrentlyOpen = (hours) => {
-        if (!hours || hours.toLowerCase() === 'closed') {
-            return false; 
+const LocationAndHours = ({ address, hoursJson }) => {
+    let hours;
+    try {
+        hours = JSON.parse(hoursJson);
+    } catch (error) {
+        console.error("Error parsing hours JSON:", error);
+        hours = {};
+    }
+
+    const isCurrentlyOpen = (hourRange) => {
+        if (!hourRange || hourRange.toLowerCase() === 'closed') {
+            return false;
         }
 
-        const [openTime, closeTime] = hours.split(' - ');
+        const [openTime, closeTime] = hourRange.split(' - ');
         const now = moment();
         const startTime = moment(openTime, "hh:mm A");
         let endTime = moment(closeTime, "hh:mm A");
 
         if (endTime.isBefore(startTime)) {
-            endTime.add(1, 'day'); 
+            endTime.add(1, 'day'); // Continue to the next day
         }
 
         if (now.isBefore(startTime) && now.format("A") === "AM") {
@@ -171,7 +194,7 @@ const LocationAndHours = ({ address, hours }) => {
     };
 
     const dayOrder = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-    const today = moment().format('ddd'); 
+    const today = moment().format('ddd');
 
     const sortedDays = Object.entries(hours).sort((a, b) => {
         return dayOrder.indexOf(a[0]) - dayOrder.indexOf(b[0]);
@@ -222,26 +245,49 @@ const LocationAndHours = ({ address, hours }) => {
     );
 };
 
-
-
 const RestaurantDetail = () => {
     const { restaurantId } = useParams();
+    const authContext = useAuth();
+    const token = authContext.token;
     const [restaurantDetails, setRestaurantDetails] = useState(null);
+    const [reviews, setReviews] = useState([]);
+    const [averageRating, setAverageRating] = useState(0);
 
     useEffect(() => {
         fetch(`http://localhost:8080/api/v1/restaurants/${restaurantId}`)
             .then(response => response.json())
             .then(data => {
-                data.imageUrls = JSON.parse(data.imageUrls || '[]');
-                data.hours = JSON.parse(data.hours);
-                console.log(data.hours); //debug
                 setRestaurantDetails(data);
+                fetchReviews();
             })
             .catch(error => {
                 console.error('Error fetching details:', error);
-                return <div>Error loading restaurant details.</div>;
             });
     }, [restaurantId]);
+
+    const fetchReviews = () => {
+        if (!token) {
+            console.log('No token provided. User is not authenticated.');
+            return;
+        }
+        fetch(`http://localhost:8080/api/v1/reviews/${restaurantId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                setReviews(data);
+                const totalScore = data.reduce((acc, review) => acc + review.score, 0);
+                setAverageRating((totalScore / data.length).toFixed(1));
+                console.log((totalScore / data.length).toFixed(1));
+        })
+        .catch(error => {
+            console.error("Error loading reviews:", error);
+        });
+    };
 
     if (!restaurantDetails) {
         return <div>Loading...</div>;
@@ -250,7 +296,12 @@ const RestaurantDetail = () => {
     return (
         <div className="wrapper">
             <SearchBar />
-            <PhotoGallery name={restaurantDetails.name} images={restaurantDetails.imageUrls} />
+            <PhotoGallery
+                name={restaurantDetails.name}
+                restaurantId={restaurantDetails.id}
+                averageRating={averageRating}
+                reviewCount={reviews.length}
+                imageUrls={restaurantDetails.imageUrls}/>
             <div className='main-content'>
                 <div className="info-column">
                     <Buttons restaurantId={restaurantDetails.id} />
@@ -258,8 +309,14 @@ const RestaurantDetail = () => {
                         website={restaurantDetails.website}
                         // fullMenuUrl={restaurantDetails.fullMenuUrl}
                     />
-                    <LocationAndHours address={restaurantDetails.location} hours={restaurantDetails.hours} />
-                    <RecommendedReviews />
+                    <LocationAndHours
+                        address={restaurantDetails.location}
+                        hoursJson={restaurantDetails.hours} />
+                    <RecommendedReviews
+                        restaurantId={restaurantDetails.id}
+                        restaurantName= {restaurantDetails.name}
+                        averageRating={restaurantDetails.rating}
+                        reviews={reviews} />
                 </div>
                 <div className="order-column">
                     <ContactInfo

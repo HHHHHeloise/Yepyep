@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { FaYelp } from 'react-icons/fa';
 import StarRatingInput from './StarRatingInput'; 
 import './WriteReviewPage.css';
+import './Restaurants.css';
 import { useAuth } from '../Auth/AuthContext';
 
 function WriteReviewPage() {
