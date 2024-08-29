@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Restaurant Evaluation Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a full-stack web application designed to help users search, locate, filter, and comment on restaurants. The front-end is built using React, providing a dynamic and responsive user interface. The back-end is implemented in Java with Spring Boot and uses MySQL for database management. Additional functionality includes user authentication and photo uploads via AWS S3.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Searching and Filtering:** Users can search for restaurants based on various criteria and filter the results according to their preferences.
+  ![Search Filter](/server/images/listing%20page.png "Dynamic Search Filter")
+- **User Comments:** Users can leave comments on restaurant pages to share their dining experiences.
+  ![User Comments](/server/images/review%20page.png "User Comments")
+  ![Post Review](/server/images/post%20review.png "Post Review")
+- **Photo Uploads:** Integrated AWS S3 allows users to upload photos along with their comments.
+  ![Photo Upload Feature](/server/images/upload%20photo.png "Uploading Photos")
+- **Responsive UI:** The front-end is designed to be responsive and user-friendly, adapting to different device screens.
+    ![Detail Page](/server/images/detail%20page-1.png "Detail Page")
+- **Secure User Authentication:** Implemented using Spring Boot's security features.
+  ![User Authentication Feature]( /server/images/login.png "Uploading Photos")
 
-### `npm start`
+## Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Front-end:** React
+- **Back-end:** Java, Spring Boot
+- **Database:** MySQL
+- **Cloud Storage:** AWS S3
+- **Version Control:** Git, hosted on GitHub
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+What things you need to install the software and how to install them:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm install
+java -version (Java 11 or higher)
+mysql --version (MySQL 8.0 or higher)
