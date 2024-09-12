@@ -1,5 +1,5 @@
 import React , { useState, useEffect } from 'react';
-import moment from 'moment/moment';
+import moment from 'moment';
 import { FaBook, FaCamera } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
