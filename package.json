@@ -29,14 +29,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "cd client/blogapi && npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build"
   },
     "engines": {
-        "node": "18.x",
-        "npm": "6.x"
+        "node": "18.15.0",
+        "npm": "9.5.0"
     },
     "license": "ISC",
-    
+
   "eslintConfig": {
     "extends": [
       "react-app",
