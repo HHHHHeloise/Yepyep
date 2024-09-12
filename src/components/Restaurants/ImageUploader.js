@@ -1,21 +1,20 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useRef, useState,  useEffect } from 'react';
+import './UploadImagePage.css';
+import { useAuth } from '../Auth/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams, Link } from 'react-router-dom';
 import './UploadImagePage.css';
 import './ImageUploader';
-import { FaYelp } from 'react-icons/fa';
-import { useAuth } from '../Auth/AuthContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import ImageUploader from './ImageUploader';
 
-const UploadImagePage = () => {
+const ImageUploader = () => {
     const authContext = useAuth();
     const token = authContext.token;
     const [files, setFiles] = useState([]); 
     const [dragOver, setDragOver] = useState(false);
     const { restaurantId } = useParams();
     const [restaurantName, setRestaurantName] = useState("");
-    // const fileInputRef = useRef(null);
+    const fileInputRef = useRef(null);
 
     useEffect(() => {
         fetch(`http://localhost:8080/api/v1/restaurants/${restaurantId}`)
@@ -24,17 +23,43 @@ const UploadImagePage = () => {
             .catch(error => console.error('Failed to load restaurant details', error));
     }, [restaurantId]);
 
+    const handleFileChange = (e) => {
+        e.preventDefault(); 
+        let newFiles = e.target.files ? Array.from(e.target.files) : Array.from(e.dataTransfer.files);
+        setFiles(prev => [...prev, ...newFiles]);
+    };
+
+    const handleUpload = () => {
+        const formData = new FormData();
+        files.forEach(file => formData.append('file', file));
+        fetch(`http://localhost:8080/api/v1/photos/upload/${restaurantId}`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` },
+            body: formData,
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(() => {
+            alert('Files uploaded successfully');
+            setFiles([]); 
+        })
+        .catch(error => {
+            console.error('Error uploading files:', error);
+            alert('Error uploading files: ' + error.message);
+        });
+    };
+
+    const removeImage = (index) => {
+        const newFiles = files.filter((_, i) => i !== index);
+        setFiles(newFiles); 
+    };
+
+
     return (
-        <div className="wrapper">
-            <header className="header">
-                <div className="logo"><FaYelp size="30" style={{ color: 'white' }} /></div>
-            </header>
-            <div className="upload-container">
-                <h2>
-                    <Link to={`/detail/${restaurantId}`} className="restaurant-link">{restaurantName}</Link> : Add Photos
-                </h2>
-                <ImageUploader/>
-                {/* {files.length === 0 ? (
+        <div>
+                {files.length === 0 ? (
                     <div>
                         <div 
                             className={`drop-area ${dragOver ? 'drag-over' : ''}`}
@@ -87,9 +112,9 @@ const UploadImagePage = () => {
                                 <button onClick={handleUpload} className="upload-button">Upload</button>
                         </div>
                     </div>
-                    )} */}
-                </div>
+                    )}
             </div>
         );
-    };
-export default UploadImagePage;
+};
+
+export default ImageUploader;
